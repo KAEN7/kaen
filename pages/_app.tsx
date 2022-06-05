@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
+import Header from "./Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 					site_name: "Gallery",
 				}}
 			/>
+			<Header />
 			<Component {...pageProps} />
 		</>
 	);

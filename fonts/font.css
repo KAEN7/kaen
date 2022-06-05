@@ -1,0 +1,15 @@
+@font-face {
+	font-family: "Anton";
+	src: url("./Anton.ttf");
+	src: url("./Anton.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("./Roboto.ttf");
+	src: url("./Roboto.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
