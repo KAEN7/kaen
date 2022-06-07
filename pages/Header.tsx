@@ -47,7 +47,7 @@ const RouteList = styled.nav`
 
 	a {
 		margin: 1rem;
-		font-weight: bold;
+		font-weight: 500;
 	}
 `;
 

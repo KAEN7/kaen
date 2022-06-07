@@ -35,32 +35,26 @@ const Three = () => {
 
 			function animate() {
 				requestAnimationFrame(animate);
-				// gltf.scene.rotation.y += 0.002;
+				gltf.scene.rotation.y += 0.002;
 				// gltf.scene.rotation.z += 0.001;
 				// gltf.scene.rotation.x += 0.003;
 				// OrbitControl
 				renderer.render(scene, camera);
 			}
 
-			// animate();
-			renderer.render(scene, camera);
+			animate();
 		});
 	}, []);
 
 	return (
 		<ThreeSection>
-			<canvas id="canvas" ref={abstract}></canvas>
+			<canvas id="canvas" width="1000" height="1000" ref={abstract}></canvas>
 		</ThreeSection>
 	);
 };
 
 const ThreeSection = styled.section`
 	${pageSetting}
-
-	canvas {
-		width: 100%;
-		height: 100%;
-	}
 `;
 
 export default Three;
