@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { color } from "../styles/theme";
 
 const Header = () => {
 	return (
@@ -33,8 +34,8 @@ const HeaderSection = styled.header`
 const Logo = styled.div`
 	display: flex;
 	align-items: flex-end;
-	background: black;
-	color: white;
+	background: ${color.black};
+	color: ${color.white};
 	font-family: "Roboto";
 	width: fit-content;
 	height: 100%;
@@ -48,6 +49,7 @@ const RouteList = styled.nav`
 	a {
 		margin: 1rem;
 		font-weight: 500;
+		color: ${color.black};
 	}
 `;
 

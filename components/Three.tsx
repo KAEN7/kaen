@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFloader";
-import { pageSetting } from "../styles/theme";
+import { pageSetting, color } from "../styles/theme";
 
 const Three = () => {
 	const abstract = useRef<any>();
@@ -19,14 +19,15 @@ const Three = () => {
 		renderer.outputEncoding = THREE.sRGBEncoding; // 색상 인코딩 방식 지정
 
 		// PerspectiveCamera: 원근법 O; OrthographicCamera: 원근법 무시
-		let camera = new THREE.PerspectiveCamera(10, 2);
-		camera.position.set(0, 0, 100);
+		let camera = new THREE.PerspectiveCamera(5, 1);
+		camera.position.set(0, 2, 100);
 
 		// 배경
-		scene.background = new THREE.Color("white");
+		scene.background = new THREE.Color(color.black);
 
 		// AmbientLight; PointLight; DirectionalLight;
-		let light = new THREE.DirectionalLight(0xffff00, 10);
+		// let light = new THREE.DirectionalLight(0xffff00, 2);
+		let light = new THREE.DirectionalLight(color.point, 1);
 		scene.add(light);
 
 		let loader = new GLTFLoader();
@@ -46,9 +47,12 @@ const Three = () => {
 		});
 	}, []);
 
+	const width = window.innerWidth;
+	const height = window.innerHeight;
+
 	return (
 		<ThreeSection>
-			<canvas id="canvas" width="1000" height="1000" ref={abstract}></canvas>
+			<canvas id="canvas" width={width} height={height} ref={abstract}></canvas>
 		</ThreeSection>
 	);
 };
