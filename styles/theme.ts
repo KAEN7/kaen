@@ -49,7 +49,6 @@ export const pageSetting = css`
 	align-items: center;
 	flex-direction: column;
 	width: 100vw;
-	height: 100vh;
 	box-sizing: border-box;
 	padding: 3rem;
 	overflow-y: auto;

@@ -3,14 +3,14 @@ import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
 
-import Logo from "./Logo/Logo";
+import Portfolio from "./portfolio/Portfolio";
 import Three from "../components/Three";
 
 const Home: NextPage = () => {
 	return (
 		<HomeSection>
-			<Logo></Logo>
-			<Three></Three>
+			<Portfolio />
+			{/* <Three></Three> */}
 		</HomeSection>
 	);
 };
@@ -20,7 +20,9 @@ const HomeSection = styled.main`
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
-	overflow-x: hidden;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
 `;
 
 export default Home;
