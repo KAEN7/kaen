@@ -10,7 +10,7 @@ const Home: NextPage = () => {
 	return (
 		<HomeSection>
 			<Portfolio />
-			{/* <Three></Three> */}
+			<Three></Three>
 		</HomeSection>
 	);
 };

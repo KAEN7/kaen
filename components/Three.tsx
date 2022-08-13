@@ -5,9 +5,6 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFloader";
 import { pageSetting, color } from "../styles/theme";
 
 const Three = () => {
-	const [width, setWidth] = useState(100);
-	const [height, setHeight] = useState(100);
-
 	useEffect(() => {
 		let scene = new THREE.Scene(); // 장면 생성
 
@@ -18,26 +15,35 @@ const Three = () => {
 
 		let renderer = new THREE.WebGLRenderer(webGL);
 		renderer.outputEncoding = THREE.sRGBEncoding; // 색상 인코딩 방식 지정
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth, window.innerHeight);
 
 		// PerspectiveCamera: 원근법 O; OrthographicCamera: 원근법 무시
-		let camera = new THREE.PerspectiveCamera(5, 1);
-		camera.position.set(0, 2, 100);
+		let camera = new THREE.PerspectiveCamera(
+			45,
+			window.innerWidth / window.innerHeight,
+			1,
+			10000
+		);
+		camera.position.set(0, 0, 150);
 
 		// 배경
-		scene.background = new THREE.Color(color.black);
+		scene.background = new THREE.Color("none");
 
 		// AmbientLight; PointLight; DirectionalLight;
 		// let light = new THREE.DirectionalLight(0xffff00, 2);
-		let light = new THREE.DirectionalLight(color.point, 1);
+		let light = new THREE.DirectionalLight(color.white, 1);
 		scene.add(light);
 
 		let loader = new GLTFLoader();
 		loader.load("/gltf/abstract_cosmic_dust_shape_1/scene.gltf", (gltf) => {
-			scene.add(gltf.scene); // 해당 모델 추가
+			gltf.scene.scale.set(0.1, 0.1, 0.1);
+			const root = gltf.scene;
+			scene.add(root); // 해당 모델 추가
 
 			function animate() {
 				requestAnimationFrame(animate);
-				gltf.scene.rotation.y += 0.002;
+				gltf.scene.rotation.y += 0.01;
 				// gltf.scene.rotation.z += 0.001;
 				// gltf.scene.rotation.x += 0.003;
 				// OrbitControl
@@ -57,34 +63,26 @@ const Three = () => {
 			function resizeCanvas() {
 				canvas.width = window.innerWidth;
 				canvas.height = window.innerHeight;
-
-				/**
-				 * Your drawings need to be inside this function otherwise they will be reset when
-				 * you resize the browser window and the canvas goes will be cleared.
-				 */
 				drawStuff();
 			}
 
 			resizeCanvas();
 
-			function drawStuff() {
-				// do your drawing stuff here
-			}
+			function drawStuff() {}
 		})();
-
-		setWidth(window.innerWidth);
-		setHeight(window.innerHeight);
 	}, []);
 
 	return (
 		<ThreeSection>
-			<canvas id="canvas" width={width} height={height}></canvas>
+			<canvas id="canvas"></canvas>
 		</ThreeSection>
 	);
 };
 
 const ThreeSection = styled.section`
 	${pageSetting}
+
+	position: absolute;
 
 	canvas {
 		margin: 0;
