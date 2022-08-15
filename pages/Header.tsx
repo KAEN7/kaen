@@ -3,19 +3,22 @@ import styled from "styled-components";
 import { color } from "../styles/theme";
 
 const Header = () => {
+	const routeList = ["about", "portfolio", "resume"];
+
 	return (
 		<HeaderSection>
-			<Logo>GALLERY</Logo>
+			<Logo>
+				<Link href="/">
+					<a>KAEN</a>
+				</Link>
+			</Logo>
+
 			<RouteList>
-				<Link href="/">
-					<a>GALLERY</a>
-				</Link>
-				<Link href="/">
-					<a>VIEW</a>
-				</Link>
-				<Link href="/">
-					<a>DESC</a>
-				</Link>
+				{routeList.map((route) => (
+					<Link href={`/${route}`} key={route}>
+						<a>{route.toUpperCase()}</a>
+					</Link>
+				))}
 			</RouteList>
 		</HeaderSection>
 	);
@@ -41,6 +44,10 @@ const Logo = styled.div`
 	height: 100%;
 	padding: 1rem;
 	box-sizing: border-box;
+
+	a {
+		letter-spacing: 0.2rem;
+	}
 `;
 
 const RouteList = styled.nav`
@@ -50,6 +57,7 @@ const RouteList = styled.nav`
 		margin: 1rem;
 		font-weight: 500;
 		color: ${color.black};
+		letter-spacing: 0.15rem;
 	}
 `;
 
