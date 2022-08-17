@@ -25,10 +25,12 @@ const theme = {
 
 // color
 export const color = {
-	white: "#F5F5F5",
-	black: "#050505",
-	gray: "#D4D4D4",
-	point: "#FF0080",
+	white: "#F3F2F2",
+	black: "#34373C",
+	gray: "#9EA1A9",
+	defaultBg: "#DDE0E7",
+	darkBg: "#B8C0D1",
+	deepDarkBg: "#302F30",
 };
 
 // flex 디자인

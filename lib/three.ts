@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Stats from "three/examples/jsm/libs/stats.module";
+import { color } from "../styles/theme";
 
 export const three = (name: any) => {
 	const scene = new THREE.Scene();
@@ -21,7 +22,7 @@ export const three = (name: any) => {
 	camera.position.y = 2;
 	camera.position.z = 1;
 
-	scene.background = new THREE.Color("white");
+	scene.background = new THREE.Color(color.defaultBg);
 
 	const renderer = new THREE.WebGLRenderer({
 		antialias: true,
@@ -55,6 +56,19 @@ export const three = (name: any) => {
 					l.shadow.mapSize.height = 2048;
 				}
 			});
+
+			function animate() {
+				requestAnimationFrame(animate);
+
+				controls.update();
+
+				render();
+
+				stats.update();
+			}
+
+			animate();
+
 			scene.add(gltf.scene);
 		},
 		(xhr) => {
@@ -76,19 +90,7 @@ export const three = (name: any) => {
 	const stats = Stats();
 	document.body.appendChild(stats.dom);
 
-	function animate() {
-		requestAnimationFrame(animate);
-
-		controls.update();
-
-		render();
-
-		stats.update();
-	}
-
 	function render() {
 		renderer.render(scene, camera);
 	}
-
-	animate();
 };

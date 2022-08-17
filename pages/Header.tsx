@@ -32,12 +32,13 @@ const HeaderSection = styled.header`
 	width: 100%;
 	height: 8vh;
 	font-family: "Roboto";
+	background: ${color.defaultBg};
 `;
 
 const Logo = styled.div`
 	display: flex;
 	align-items: flex-end;
-	background: ${color.black};
+	background: ${color.deepDarkBg};
 	color: ${color.white};
 	font-family: "Roboto";
 	width: fit-content;
