@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lowpoly 65% Mechanical Keyboard
+* source:	https://sketchfab.com/3d-models/lowpoly-65-mechanical-keyboard-0cdd429eb08549ac954352169de5c8f8
+* author:	sleepyjoshua (https://sketchfab.com/sleepyjoshua)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lowpoly 65% Mechanical Keyboard" (https://sketchfab.com/3d-models/lowpoly-65-mechanical-keyboard-0cdd429eb08549ac954352169de5c8f8) by sleepyjoshua (https://sketchfab.com/sleepyjoshua) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -5,8 +5,11 @@ import { three } from "../lib/three";
 import { color } from "../styles/theme";
 
 const Home: NextPage = () => {
+	let height;
 	useEffect(() => {
 		three("mechanical_keyboard");
+
+		height = window.innerHeight / 2;
 	}, []);
 
 	const onClickHandler = (gltf: any) => {
@@ -16,8 +19,8 @@ const Home: NextPage = () => {
 
 	return (
 		<HomeSection>
-			<Cover></Cover>
-			<canvas id="canvas"></canvas>
+			<h1>KUSDSUNA</h1>
+			<canvas id="mechanical_keyboard"></canvas>
 		</HomeSection>
 	);
 };
@@ -25,12 +28,12 @@ const Home: NextPage = () => {
 const HomeSection = styled.main`
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	overflow: hidden;
 	position: relative;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	margin: 0;
 	padding: 0;
 	background: ${color.defaultBg};
@@ -41,14 +44,11 @@ const HomeSection = styled.main`
 		position: absolute;
 		z-index: 1;
 	}
-`;
 
-const Cover = styled.div`
-	/* width: 100vw;
-	height: 100vh; */
-	/* position: absolute; */
-	background: black;
-	z-index: 2;
+	h1 {
+		font-size: 13rem;
+		color: ${color.deepDarkBg};
+	}
 `;
 
 export default Home;

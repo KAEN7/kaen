@@ -8,10 +8,26 @@ export const three = (name: any) => {
 	const scene = new THREE.Scene();
 	// scene.add(new THREE.AxesHelper(5));
 
+	const webGL: any = {
+		canvas: document.querySelector(`#${name}`),
+		antialias: true,
+		alpha: true,
+	};
+
+	// RENDERER
+	const renderer = new THREE.WebGLRenderer(webGL);
+	// renderer.physicallyCorrectLights = true;
+
+	renderer.shadowMap.enabled = true;
+	renderer.outputEncoding = THREE.sRGBEncoding;
+	renderer.setSize(window.innerWidth, window.innerHeight);
+
+	// LIGHT
 	const light = new THREE.SpotLight();
 	light.position.set(5, 5, 5);
 	scene.add(light);
 
+	// CAMERA
 	const camera = new THREE.PerspectiveCamera(
 		75,
 		window.innerWidth / window.innerHeight,
@@ -22,22 +38,14 @@ export const three = (name: any) => {
 	camera.position.y = 2;
 	camera.position.z = 1;
 
-	scene.background = new THREE.Color(color.defaultBg);
+	// scene.background = new THREE.Color(color.defaultBg);
 
-	const renderer = new THREE.WebGLRenderer({
-		antialias: true,
-		alpha: true,
-	});
-	// renderer.physicallyCorrectLights = true;
-
-	renderer.shadowMap.enabled = true;
-	renderer.outputEncoding = THREE.sRGBEncoding;
-	renderer.setSize(window.innerWidth, window.innerHeight);
-	document.body.appendChild(renderer.domElement);
+	// document.body.appendChild(renderer.domElement);
 
 	const controls = new OrbitControls(camera, renderer.domElement);
 	controls.enableDamping = true;
 
+	// LOADER
 	const loader = new GLTFLoader();
 	loader.load(
 		`/gltf/${name}/scene.gltf`,
@@ -60,6 +68,10 @@ export const three = (name: any) => {
 			function animate() {
 				requestAnimationFrame(animate);
 
+				gltf.scene.rotation.z -= 0.001;
+				gltf.scene.rotation.y -= 0.002;
+				gltf.scene.rotation.x -= 0.003;
+
 				controls.update();
 
 				render();
@@ -79,16 +91,18 @@ export const three = (name: any) => {
 		}
 	);
 
-	window.addEventListener("resize", onWindowResize, false);
-	function onWindowResize() {
-		camera.aspect = window.innerWidth / window.innerHeight;
-		camera.updateProjectionMatrix();
-		renderer.setSize(window.innerWidth, window.innerHeight);
-		render();
-	}
+	() => {
+		window.addEventListener("resize", onWindowResize, false);
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			render();
+		}
+	};
 
 	const stats = Stats();
-	document.body.appendChild(stats.dom);
+	// document.body.appendChild(stats.dom);
 
 	function render() {
 		renderer.render(scene, camera);
