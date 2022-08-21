@@ -79,4 +79,26 @@ export const fadeIn = css`
 	}
 `;
 
+export const rainbowText = css`
+	white-space: nowrap;
+
+	background: -webkit-linear-gradient(92deg, #95d7e3, #eb76ff);
+	background-size: 100vw 100vw;
+
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: textAnimate 5s linear infinite alternate;
+
+	@keyframes textAnimate {
+		from {
+			filter: hue-rotate(0deg);
+			background-position-x: 0%;
+		}
+		to {
+			filter: hue-rotate(360deg);
+			background-position-x: 600vw;
+		}
+	}
+`;
+
 export type Theme = typeof theme;

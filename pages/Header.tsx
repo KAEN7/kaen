@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import { color } from "../styles/theme";
+import { color, rainbowText } from "../styles/theme";
 
 const Header = () => {
 	const routeList = ["about", "portfolio", "resume"];
@@ -48,6 +48,10 @@ const Logo = styled.div`
 
 	a {
 		letter-spacing: 0.2rem;
+
+		&:hover {
+			${rainbowText}
+		}
 	}
 `;
 
@@ -59,6 +63,10 @@ const RouteList = styled.nav`
 		font-weight: 500;
 		color: ${color.black};
 		letter-spacing: 0.15rem;
+
+		&:hover {
+			${rainbowText}
+		}
 	}
 `;
 

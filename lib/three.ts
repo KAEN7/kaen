@@ -2,9 +2,10 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Stats from "three/examples/jsm/libs/stats.module";
-import { color } from "../styles/theme";
 
-export const three = (name: any) => {
+export const three = (name: string, loadingHandler: any) => {
+	loadingHandler(true);
+
 	const scene = new THREE.Scene();
 	// scene.add(new THREE.AxesHelper(5));
 
@@ -106,5 +107,7 @@ export const three = (name: any) => {
 
 	function render() {
 		renderer.render(scene, camera);
+
+		loadingHandler(false);
 	}
 };

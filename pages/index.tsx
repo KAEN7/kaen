@@ -1,15 +1,20 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { three } from "../lib/three";
-import { color } from "../styles/theme";
+import { loadingAtom } from "../store";
+import { color, rainbowText } from "../styles/theme";
 
 const Home: NextPage = () => {
-	let height;
-	useEffect(() => {
-		three("mechanical_keyboard");
+	const [_, setLoading] = useRecoilState(loadingAtom);
 
-		height = window.innerHeight / 2;
+	const loadingHandler = (toggle: boolean) => {
+		setLoading(toggle);
+	};
+
+	useEffect(() => {
+		three("mechanical_keyboard", loadingHandler);
 	}, []);
 
 	const onClickHandler = (gltf: any) => {
@@ -48,6 +53,10 @@ const HomeSection = styled.main`
 	h1 {
 		font-size: 13rem;
 		color: ${color.deepDarkBg};
+
+		/* &:hover {
+			${rainbowText}
+		} */
 	}
 `;
 

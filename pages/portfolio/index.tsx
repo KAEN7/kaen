@@ -7,7 +7,7 @@ const Portfolio = () => {
 	const gltfName = "pawn";
 
 	useEffect(() => {
-		three(gltfName);
+		// three(gltfName);
 
 		const area: any = document.querySelector(".slide-area");
 		const circle: any = document.querySelector(".card-transition");
