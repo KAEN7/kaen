@@ -5,9 +5,11 @@ import Header from "./Header";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { color } from "../styles/theme";
+import { useState } from "react";
 
 function Main({ Component, pageProps }: any) {
 	const [loading, _] = useRecoilState(loadingAtom);
+	const [cover, setCover] = useState(false);
 
 	return (
 		<>
@@ -46,7 +48,7 @@ const Loading = styled.div`
 	.progressBar {
 		width: 200px;
 		height: 30px;
-		border: 8px solid;
+		border: 7px solid;
 		border-image: conic-gradient(
 				from var(--angle),
 				red,

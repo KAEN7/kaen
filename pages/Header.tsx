@@ -1,9 +1,14 @@
+import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import { color, rainbowText } from "../styles/theme";
 
 const Header = () => {
 	const routeList = ["about", "portfolio", "resume"];
+	const router = useRouter();
+
+	console.log("router", router.pathname);
 
 	return (
 		<HeaderSection>
@@ -15,9 +20,12 @@ const Header = () => {
 
 			<RouteList>
 				{routeList.map((route) => (
-					<Link href={`/${route}`} key={route}>
-						<a>{route.toUpperCase()}</a>
-					</Link>
+					<React.Fragment key={route}>
+						<Link href={`/${route}`}>
+							<a>{route.toUpperCase()}</a>
+						</Link>
+						{`/${route}` === router.pathname && <BorderLine></BorderLine>}
+					</React.Fragment>
 				))}
 			</RouteList>
 		</HeaderSection>
@@ -68,6 +76,12 @@ const RouteList = styled.nav`
 			${rainbowText}
 		}
 	}
+`;
+
+const BorderLine = styled.div`
+	height: 3px;
+	width: 100%;
+	background: ${color.black};
 `;
 
 export default Header;

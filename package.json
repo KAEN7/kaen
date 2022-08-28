@@ -17,6 +17,7 @@
 		"recoil": "^0.7.3",
 		"recoil-persist": "^4.2.0",
 		"styled-components": "^5.3.5",
+		"swiper": "^8.3.2",
 		"three": "^0.141.0"
 	},
 	"devDependencies": {
