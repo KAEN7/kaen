@@ -2,10 +2,9 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
-
 import { RecoilRoot } from "recoil";
 
-import Main from "./Main";
+import Main from "../components/Main";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -18,14 +17,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<DefaultSeo
 				title="프론트엔드 개발자 이성훈입니다"
 				description="프론트엔드 개발자 이성훈입니다"
-				canonical="https://"
+				canonical="https://kaen.site"
 				openGraph={{
 					type: "website",
-					url: "https://",
-					title: "프론트엔드 개발자 이성훈입니다, Gallery",
+					url: "https://kaen.site",
+					title: "프론트엔드 개발자 이성훈입니다",
 					description: "프론트엔드 개발자 이성훈입니다",
 					images: [{ url: "https://images/seo_bg.png" }],
-					site_name: "Gallery",
+					site_name: "KAEN",
 				}}
 			/>
 

@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import Image from "next/image";
 import { loadingAtom } from "../store/index";
-import Header from "./Header";
+import Header from "../pages/Header";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { color } from "../styles/theme";
@@ -24,9 +24,9 @@ function Main({ Component, pageProps }: any) {
 					<div className="progressBar"></div>
 				</Loading>
 			)}
-			{/* <Cover onClick={() => setCover(true)} cover={cover}>
+			<Cover onClick={() => setCover(true)} cover={cover}>
 				<h1>KUSDSUNA</h1>
-			</Cover> */}
+			</Cover>
 
 			<Header />
 			<Component {...pageProps} />
