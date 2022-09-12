@@ -1,34 +1,41 @@
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
-import {
-	color,
-	flexCenter,
-	flexCenterDir,
-	overflowY,
-	rainbowText,
-} from "../../styles/theme";
+import { color, flexCenter, flexCenterDir, overflowY, rainbowText } from "../../styles/theme";
 
 const Index = () => {
-	const frontend = [
-		"javascript",
-		"typescript",
-		"styledComponents",
-		"redux",
-		"nextjs",
-		"recoil",
-	];
+	const frontend = ["javascript", "typescript", "styledComponents", "redux", "nextjs", "recoil"];
 	const backend = [];
 	const tools = ["confluence", "figma", "git", "jira", "notion"];
 	const infra = ["aws", "vercel"];
 
 	const skillList: any = { frontend: frontend, tools: tools, infra: infra };
 
+	const aboutRef = useRef<any>();
+
+	const handleScroll = useCallback((e: any) => {
+		// todo 하위 요소들이 스크롤시 단계별로 멀어지게 설정
+		console.log("e", e);
+		const items = e.target.children[0];
+
+		Object.values(items.children).forEach((item: any, idx: number) => {
+			// console.log("item", item);
+			return (item.style.marginLeft = `${10 * idx}px`);
+		});
+	}, []);
+
+	useLayoutEffect(() => {
+		if (aboutRef.current) {
+			aboutRef.current.addEventListener("scroll", handleScroll);
+			return () => aboutRef.current.removeEventListener("scroll", handleScroll);
+		}
+	}, [handleScroll]);
+
 	return (
 		<AboutSection>
 			<TextBox>
 				<MainTextBox>
-					<AboutItem className="about">
+					<AboutItem ref={aboutRef} className="about">
 						<span>안녕하세요 프론트엔드 개발자 이성훈입니다</span>
 						<span>저는 코드를 줄이고 재활용 시키는 것에 관심이 많아</span>
 						<span>Atomic 디자인 패턴을 사용하고있고</span>
@@ -45,17 +52,8 @@ const Index = () => {
 										{skillList[key].map((skill: string) => {
 											return (
 												<div key={skill} className="skillBox">
-													<Image
-														src={`/images/skill/${skill}.png`}
-														alt={skill}
-														width={85}
-														height={85}
-													/>
-													<span>
-														{skill.toUpperCase() === "STYLEDCOMPONENTS"
-															? "STYLED\nCOMPONENTS"
-															: skill.toUpperCase()}
-													</span>
+													<Image src={`/images/skill/${skill}.png`} alt={skill} width={85} height={85} />
+													<span>{skill.toUpperCase() === "STYLEDCOMPONENTS" ? "STYLED\nCOMPONENTS" : skill.toUpperCase()}</span>
 												</div>
 											);
 										})}
@@ -69,11 +67,7 @@ const Index = () => {
 					<a href="https://github.com/KAEN7" target="_blank" rel="noreferrer">
 						Github
 					</a>
-					<a
-						href="https://kusdsuna.tistory.com/"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<a href="https://kusdsuna.tistory.com/" target="_blank" rel="noreferrer">
 						Tistory
 					</a>
 				</SubTextBox>
@@ -126,6 +120,7 @@ const AboutItem = styled.div`
 	align-items: flex-start;
 	min-height: 100%;
 	width: 100%;
+	cursor: pointer;
 
 	span {
 		font-family: "Anton";

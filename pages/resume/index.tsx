@@ -1,26 +1,19 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import {
-	color,
-	flexCenter,
-	flexCenterDir,
-	overflowY,
-	rainbowText,
-} from "../../styles/theme";
+import { color, flexCenter, flexCenterDir, overflowY, rainbowText } from "../../styles/theme";
 
 const resumeList = [
 	{
 		company: "pynth protocol",
 		position: "Frontend",
-		duration: "2022.03 - 재직중",
+		duration: "2022.03 -\n재직중",
 		project: [
 			{
 				title: "peri.Staking",
 				skill: "React, TypeScript, Redux-toolkit, ethers.js, AWS",
 				list: [
 					{
-						subtitle:
-							"ethers.js를 통한 컨트랙트 연결 및 호출 비동기 병렬처리화 속도개선",
+						subtitle: "ethers.js를 통한 컨트랙트 연결 및 호출 비동기 병렬처리화 속도개선",
 					},
 					{
 						subtitle: "Liquidation",
@@ -52,8 +45,7 @@ const resumeList = [
 			},
 			{
 				title: "nendNFT",
-				skill:
-					"React, TypeScript, Recoil-persist, Styled-components, AWS, CloudFront, Amplify",
+				skill: "React, TypeScript, Recoil-persist, Styled-components, AWS, CloudFront, Amplify",
 				list: [
 					{
 						subtitle: "CloudFront를 통한 정적 웹사이트 라이브 배포",
@@ -80,9 +72,7 @@ const resumeList = [
 					},
 					{
 						subtitle: "Monitoring Bot",
-						description: [
-							"Googleapis를 사용한 봇 에러 및 성공 메시지 구글 챗 알림 기능 구현",
-						],
+						description: ["Googleapis를 사용한 봇 에러 및 성공 메시지 구글 챗 알림 기능 구현"],
 					},
 				],
 			},
@@ -91,24 +81,20 @@ const resumeList = [
 	{
 		company: "개인 프로젝트",
 		position: "Frontend",
-		duration: "2022.01 - 진행중",
+		duration: "2022.01 -\n진행중",
 		project: [
 			{
 				title: "Lostgold",
-				skill:
-					"Next.js, TypeScript, Recoil-persist, Styled-components, Storybook, Vercel",
+				skill: "Next.js, TypeScript, Recoil-persist, Styled-components, Storybook, Vercel",
 				list: [
 					{
-						subtitle:
-							"Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
+						subtitle: "Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
 					},
 					{
-						subtitle:
-							"Recoil-persist를 통한 캐릭터 및 개별 재료 골드 가격 전역 관리",
+						subtitle: "Recoil-persist를 통한 캐릭터 및 개별 재료 골드 가격 전역 관리",
 					},
 					{
-						subtitle:
-							"설정페이지로 재료별 가격 및 캐릭터 추가 기능 전역적 관리",
+						subtitle: "설정페이지로 재료별 가격 및 캐릭터 추가 기능 전역적 관리",
 					},
 					{ subtitle: "캐릭터 별 골드 계산 로직 구현" },
 				],
@@ -118,7 +104,7 @@ const resumeList = [
 	{
 		company: "yesnow",
 		position: "Frontend",
-		duration: "2021.12 - 2022.02",
+		duration: "2021.12 -\n2022.02",
 		project: [
 			{
 				title: "Fitfinder V2",
@@ -133,12 +119,10 @@ const resumeList = [
 							"API에 따른 문구 변경 로직 구현 및 치수 변경 로직 작성 등 V2 동작부 프론트 업무 수행",
 					},
 					{
-						subtitle:
-							"Zeplin과 Styled-components을 통한 디자이너와 의사소통 및 협업",
+						subtitle: "Zeplin과 Styled-components을 통한 디자이너와 의사소통 및 협업",
 					},
 					{
-						subtitle:
-							"Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
+						subtitle: "Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
 					},
 					{
 						subtitle:
@@ -260,6 +244,7 @@ const SubDescription = styled.div`
 		margin-bottom: 1rem;
 		letter-spacing: 0.2rem;
 		box-sizing: border-box;
+		white-space: pre-wrap;
 	}
 `;
 

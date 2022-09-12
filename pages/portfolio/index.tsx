@@ -16,9 +16,16 @@ const Portfolio = () => {
 	useEffect(() => {
 		three("lowpoly_65_mechanical_keyboard", loadingHandler);
 
-		document.addEventListener("scroll", () =>
-			console.log(document.documentElement.scrollTop)
-		);
+		// let side1 = document.getElementById('side1');
+		//     let side2 = document.getElementById('side2');
+
+		//     window.addEventListener('scroll', function(){
+		//         side1.style.left = -window.pageYOffset + 'px';
+		//         side2.style.left = window.pageYOffset + 'px';
+		//     })
+
+		// document.addEventListener("scroll", () => console.log(document.documentElement.scrollTop));
+		window.addEventListener("scroll", () => console.log("ㄴㅊ개ㅣㅣ"));
 	}, []);
 
 	return (

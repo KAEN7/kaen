@@ -15,12 +15,7 @@ function Main({ Component, pageProps }: any) {
 		<>
 			{loading && (
 				<Loading>
-					<Image
-						src="/images/keycap.png"
-						alt="loading"
-						width={144}
-						height={144}
-					/>
+					<Image src="/images/keycap.png" alt="loading" width={144} height={144} />
 					<div className="progressBar"></div>
 				</Loading>
 			)}
@@ -46,20 +41,10 @@ const Loading = styled.div`
 	z-index: 9999;
 
 	.progressBar {
-		width: 200px;
+		width: 17rem;
 		height: 30px;
 		border: 7px solid;
-		border-image: conic-gradient(
-				from var(--angle),
-				red,
-				yellow,
-				lime,
-				aqua,
-				blue,
-				magenta,
-				red
-			)
-			1;
+		border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
 
 		animation: 2s rotate linear infinite;
 
