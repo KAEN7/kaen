@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { color, flexCenter, flexCenterDir, overflowY, rainbowText } from "../../styles/theme";
+import {
+	color,
+	flexCenter,
+	flexCenterDir,
+	overflowY,
+	rainbowText,
+} from "../../styles/theme";
 
 const resumeList = [
 	{
@@ -13,7 +19,8 @@ const resumeList = [
 				skill: "React, TypeScript, Redux-toolkit, ethers.js, AWS",
 				list: [
 					{
-						subtitle: "ethers.js를 통한 컨트랙트 연결 및 호출 비동기 병렬처리화 속도개선",
+						subtitle:
+							"ethers.js를 통한 컨트랙트 연결 및 호출 비동기 병렬처리화 속도개선",
 					},
 					{
 						subtitle: "Liquidation",
@@ -45,7 +52,8 @@ const resumeList = [
 			},
 			{
 				title: "nendNFT",
-				skill: "React, TypeScript, Recoil-persist, Styled-components, AWS, CloudFront, Amplify",
+				skill:
+					"React, TypeScript, Recoil-persist, Styled-components, AWS, CloudFront, Amplify",
 				list: [
 					{
 						subtitle: "CloudFront를 통한 정적 웹사이트 라이브 배포",
@@ -72,7 +80,9 @@ const resumeList = [
 					},
 					{
 						subtitle: "Monitoring Bot",
-						description: ["Googleapis를 사용한 봇 에러 및 성공 메시지 구글 챗 알림 기능 구현"],
+						description: [
+							"Googleapis를 사용한 봇 에러 및 성공 메시지 구글 챗 알림 기능 구현",
+						],
 					},
 				],
 			},
@@ -85,16 +95,20 @@ const resumeList = [
 		project: [
 			{
 				title: "Lostgold",
-				skill: "Next.js, TypeScript, Recoil-persist, Styled-components, Storybook, Vercel",
+				skill:
+					"Next.js, TypeScript, Recoil-persist, Styled-components, Storybook, Vercel",
 				list: [
 					{
-						subtitle: "Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
+						subtitle:
+							"Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
 					},
 					{
-						subtitle: "Recoil-persist를 통한 캐릭터 및 개별 재료 골드 가격 전역 관리",
+						subtitle:
+							"Recoil-persist를 통한 캐릭터 및 개별 재료 골드 가격 전역 관리",
 					},
 					{
-						subtitle: "설정페이지로 재료별 가격 및 캐릭터 추가 기능 전역적 관리",
+						subtitle:
+							"설정페이지로 재료별 가격 및 캐릭터 추가 기능 전역적 관리",
 					},
 					{ subtitle: "캐릭터 별 골드 계산 로직 구현" },
 				],
@@ -119,10 +133,12 @@ const resumeList = [
 							"API에 따른 문구 변경 로직 구현 및 치수 변경 로직 작성 등 V2 동작부 프론트 업무 수행",
 					},
 					{
-						subtitle: "Zeplin과 Styled-components을 통한 디자이너와 의사소통 및 협업",
+						subtitle:
+							"Zeplin과 Styled-components을 통한 디자이너와 의사소통 및 협업",
 					},
 					{
-						subtitle: "Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
+						subtitle:
+							"Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
 					},
 					{
 						subtitle:
@@ -200,7 +216,7 @@ const ResumeBox = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	width: 100%;
-	margin-top: 5rem;
+	margin-top: 7rem;
 	padding-left: 5.5rem;
 	box-sizing: border-box;
 `;
@@ -259,13 +275,13 @@ const MainDescription = styled.div`
 `;
 
 const Skill = styled.span`
-	margin: 1rem 0;
+	margin: 2rem 0;
 	letter-spacing: 0.2rem;
 `;
 
 const ProjectList = styled.div`
 	letter-spacing: 0.2rem;
-	margin-bottom: 3rem;
+	margin-bottom: 7rem;
 
 	li {
 		margin-top: 1rem;

@@ -52,7 +52,11 @@ const Slider = () => {
 
 			<PortfolioNav>
 				{portfolioList.map((_, idx) => (
-					<NavBtn onClick={() => setIndex(idx)} key={`button${idx}`} index={idx === index}></NavBtn>
+					<NavBtn
+						onClick={() => setIndex(idx)}
+						key={`button${idx}`}
+						index={idx === index}
+					></NavBtn>
 				))}
 			</PortfolioNav>
 		</SliderSection>
@@ -63,11 +67,11 @@ const SliderSection = styled.div`
 	display: flex;
 	min-width: 1000px;
 	position: relative;
-	right: 22rem;
+	right: 50rem;
 	padding-left: 5rem;
 
-	@media ${(props) => props.theme.tablet} {
-		right: 50rem;
+	@media ${(props) => props.theme.desktop} {
+		right: 22rem;
 	}
 `;
 
