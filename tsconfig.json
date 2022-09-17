@@ -20,7 +20,7 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"components/Three.tsx",
-		"pages/_document.js"
+		"pages/_document.tsx"
 	],
 	"exclude": ["node_modules"]
 }
