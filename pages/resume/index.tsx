@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-	color,
-	flexCenter,
-	flexCenterDir,
-	overflowY,
-	rainbowText,
-} from "../../styles/theme";
+import { color, flexCenter, flexCenterDir, overflowY, rainbowText } from "../../styles/theme";
 
 const resumeList = [
 	{
@@ -16,44 +10,72 @@ const resumeList = [
 		project: [
 			{
 				title: "peri.Staking",
-				skill: "React, TypeScript, Redux-toolkit, ethers.js, AWS",
+				skill: "React, TypeScript, Redux-toolkit, ethers.js, AWS, Jira, Confluence",
+				mainDesc: {
+					desc: "핀스프로토콜의 dAPP인 staking의 기능 구현과 유지보수를 하고 있습니다",
+					deploy: "https://staking.peri.finance/",
+					github: "https://github.com/perifinance/peri.staking",
+				},
 				list: [
 					{
-						subtitle:
-							"ethers.js를 통한 컨트랙트 연결 및 호출 비동기 병렬처리화 속도개선",
+						subtitle: "ethers.js를 통한 컨트랙트 연결 및 호출 비동기 병렬처리화 속도개선",
 					},
 					{
-						subtitle: "Liquidation",
+						subtitle: "Liquidation(청산) 구현",
 						description: [
-							"C-Ratio(담보비율)이 150이하인 대상자들의 빛을 타 유저들이 대신 값아줄수 있는 기능 구현",
 							"Liquidation 대상 리스트 병렬 호출 및 예외처리 로직 구현",
-							"liquidator가 가진 pUSD만큼 liquidation 대상의 빛을 갚아주는 Take 로직 구현",
+							"다른 유저가 청산 대상자의 빚을 대신 갚는 TAKE 기능 구현",
 						],
 					},
 					{
-						subtitle: "Escrow",
-						description: [
-							"52주 동안 쌓인 reward 수령",
-							"Escrow 대상 리스트 병렬 호출 및 예외처리 로직 구현",
-							"수령가능한 reward 전체 수령 컨트랙트 호출",
-						],
+						subtitle: "Escrow(보상) 구현",
+						description: ["52주 동안 쌓인 reward 수령", "Escrow 대상 리스트 병렬 호출 및 예외처리 로직 구현"],
 					},
 				],
 			},
 			{
 				title: "peri.Dex",
 				skill: "React, TypeScript, Redux-toolkit, ethers.js, the graph, AWS",
+				mainDesc: {
+					desc: "핀스프로토콜의 Dex 기능복구와 유지보수를 작업했습니다",
+					deploy: "https://dex.peri.finance/exchange",
+					github: "https://github.com/perifinance/peri.dex",
+				},
 				list: [
 					{
-						subtitle:
-							"기존 그래프 데이터 및 Available balance 값을 받아주던 the graph 로직 DB로 변경 작업 진행중",
+						subtitle: "기존 The Graph 환경에서 GraphQL로 프론트, 백단 환경 변경",
+					},
+					{
+						subtitle: "사용자 경험 개선을 위한 차트 변경 및 UI, UX",
+					},
+					{
+						subtitle: "바이낸스 API를 이용한 차트 구현",
+					},
+				],
+			},
+			{
+				title: "peri.Dashboard",
+				skill: "React, TypeScript, Redux, GraphQL, ethers.js, AWS",
+				mainDesc: {
+					desc: "핀스프로토콜의 Dashboard 기능복구와 유지보수를 작업했습니다",
+					deploy: "https://dashboard.peri.finance/bridge/submit",
+					github: "https://github.com/perifinance/peri.dashboard",
+				},
+				list: [
+					{
+						subtitle: "기존 The Graph 환경에서 GraphQL로 프론트, 백단 환경 변경",
 					},
 				],
 			},
 			{
 				title: "nendNFT",
-				skill:
-					"React, TypeScript, Recoil-persist, Styled-components, AWS, CloudFront, Amplify",
+				skill: "React, TypeScript, Recoil-persist, Styled-components, AWS, CloudFront",
+				mainDesc: {
+					desc: "핀스프로토콜의 NFT 민팅 서비스 퍼블리싱을 작업했습니다",
+					deploy: "https://nendnft.com/",
+					github: "https://github.com/perifinance/perifinance_NFT",
+				},
+
 				list: [
 					{
 						subtitle: "CloudFront를 통한 정적 웹사이트 라이브 배포",
@@ -69,6 +91,11 @@ const resumeList = [
 			{
 				title: "유지보수용 툴 제작",
 				skill: "Node.js, EC2, PM2, Googleapis, Puppeteer, cloudflare-scraper",
+				mainDesc: {
+					desc: "개발 및 마케팅 팀에서 활용되는 툴을 제작했습니다",
+					deploy: "",
+					github: "https://github.com/perifinance/tvl-holders",
+				},
 				list: [
 					{
 						subtitle: "TVL_Holders",
@@ -80,37 +107,8 @@ const resumeList = [
 					},
 					{
 						subtitle: "Monitoring Bot",
-						description: [
-							"Googleapis를 사용한 봇 에러 및 성공 메시지 구글 챗 알림 기능 구현",
-						],
+						description: ["Googleapis를 사용한 봇 에러 및 성공 메시지 구글 챗 알림 기능 구현"],
 					},
-				],
-			},
-		],
-	},
-	{
-		company: "개인 프로젝트",
-		position: "Frontend",
-		duration: "2022.01 -\n진행중",
-		project: [
-			{
-				title: "Lostgold",
-				skill:
-					"Next.js, TypeScript, Recoil-persist, Styled-components, Storybook, Vercel",
-				list: [
-					{
-						subtitle:
-							"Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
-					},
-					{
-						subtitle:
-							"Recoil-persist를 통한 캐릭터 및 개별 재료 골드 가격 전역 관리",
-					},
-					{
-						subtitle:
-							"설정페이지로 재료별 가격 및 캐릭터 추가 기능 전역적 관리",
-					},
-					{ subtitle: "캐릭터 별 골드 계산 로직 구현" },
 				],
 			},
 		],
@@ -123,27 +121,52 @@ const resumeList = [
 			{
 				title: "Fitfinder V2",
 				skill: "React, Redux-saga, Styled-components, Storybook, Gitlab",
+				mainDesc: { desc: "AI 사이즈 측정 서비스", deploy: "https://www.fitfinder.kr/", github: "" },
+
 				list: [
 					{
-						subtitle:
-							"카페24 고객사 쇼핑몰에 핏파인더 설치 및 유지 보수, V2 업데이트 업무, 사이즈 이미지표 업무 수행",
+						subtitle: "카페24 고객사 쇼핑몰에 핏파인더 설치 및 유지 보수, V2 업데이트 업무, 사이즈 이미지표 업무 수행",
 					},
 					{
-						subtitle:
-							"API에 따른 문구 변경 로직 구현 및 치수 변경 로직 작성 등 V2 동작부 프론트 업무 수행",
+						subtitle: "API에 따른 문구 변경 로직 구현 및 치수 변경 로직 작성 등 V2 동작부 프론트 업무 수행",
 					},
 					{
-						subtitle:
-							"Zeplin과 Styled-components을 통한 디자이너와 의사소통 및 협업",
+						subtitle: "Zeplin과 Styled-components을 통한 디자이너와 의사소통 및 협업",
 					},
 					{
-						subtitle:
-							"Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
+						subtitle: "Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
 					},
 					{
-						subtitle:
-							"Admin 페이지 프론트 업무 및 Postman을 통한 고객사 계정 생성, 설치 업무 매뉴얼 작성",
+						subtitle: "Admin 페이지 프론트 업무 및 Postman을 통한 고객사 계정 생성, 설치 업무 매뉴얼 작성",
 					},
+				],
+			},
+		],
+	},
+	{
+		company: "개인 프로젝트",
+		position: "Frontend",
+		duration: "2022.01 -\n진행중",
+		project: [
+			{
+				title: "Lostgold",
+				skill: "Next.js, TypeScript, Recoil-persist, Styled-components, Storybook, Vercel",
+				mainDesc: {
+					desc: "로스트아크 주간 골드 획득량 계산",
+					deploy: "https://lostgold.vercel.app/",
+					github: "https://github.com/KAEN7/lostgold",
+				},
+				list: [
+					{
+						subtitle: "Atomic 디자인 패턴과 Storybook을 통한 컴포넌트 중심 설계 개발",
+					},
+					{
+						subtitle: "Recoil-persist를 통한 캐릭터 및 개별 재료 골드 가격 전역 관리",
+					},
+					{
+						subtitle: "설정페이지로 재료별 가격 및 캐릭터 추가 기능 전역적 관리",
+					},
+					{ subtitle: "캐릭터 별 골드 계산 로직 구현" },
 				],
 			},
 		],
@@ -166,15 +189,26 @@ const Index = () => {
 						<MainDescription>
 							{resume.project?.map((project) => {
 								const list = project.list;
+								const desc = project.mainDesc;
 
 								return (
 									<React.Fragment key={project.title}>
 										<Title>
-											<Icon />
+											{/* <Icon /> */}
 											{project.title}
 										</Title>
 
 										<Skill>{project.skill}</Skill>
+
+										<Description>
+											<span>{desc.desc}</span>
+											<a href={desc.deploy} target="_blank" rel="noreferrer">
+												배포
+											</a>
+											<a href={desc.github} target="_blank" rel="noreferrer">
+												깃헙
+											</a>
+										</Description>
 
 										<ProjectList>
 											{list.map((item) => (
@@ -277,6 +311,24 @@ const MainDescription = styled.div`
 const Skill = styled.span`
 	margin: 2rem 0;
 	letter-spacing: 0.2rem;
+`;
+
+const Description = styled.div`
+	display: flex;
+	letter-spacing: 0.2rem;
+
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 1rem;
+		background: ${color.deepDarkBg};
+		color: ${color.white};
+		padding: 0 0.5rem;
+		border-radius: 0.3rem;
+		box-sizing: border-box;
+		font-size: 0.8rem;
+	}
 `;
 
 const ProjectList = styled.div`
