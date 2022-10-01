@@ -35,7 +35,7 @@ const Index = () => {
 				<MainTextBox ref={aboutRef}>
 					<AboutItem className="about">
 						<span>안녕하세요 프론트엔드 개발자 이성훈입니다</span>
-						<span>웹 프론트엔드 엔니로 일하고 있으며</span>
+						<span>웹 프론트엔드 엔지니어로 일하고 있으며</span>
 						<span>React와 Recoil을 사용해서 개발하고 있습니다</span>
 						<span>저는 코드를 줄이고 재활용 시키는 것에 관심이 많으며</span>
 						<span>지속적인 기록을 중요하게 생각합니다</span>
