@@ -1,23 +1,10 @@
 import Image from "next/image";
 import React, { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
-import {
-	color,
-	flexCenter,
-	flexCenterDir,
-	overflowY,
-	rainbowText,
-} from "../../styles/theme";
+import { color, flexCenter, flexCenterDir, overflowY, rainbowText } from "../../styles/theme";
 
 const Index = () => {
-	const frontend = [
-		"javascript",
-		"typescript",
-		"styledComponents",
-		"redux",
-		"nextjs",
-		"recoil",
-	];
+	const frontend = ["javascript", "typescript", "styledComponents", "redux", "nextjs", "recoil"];
 	const backend = [];
 	const tools = ["confluence", "figma", "git", "jira", "notion"];
 	const infra = ["aws", "vercel"];
@@ -27,7 +14,6 @@ const Index = () => {
 	const aboutRef = useRef<any>();
 
 	const handleScroll = useCallback((e: any) => {
-		// todo 하위 요소들이 스크롤시 단계별로 멀어지게 설정
 		const items = e.target.children[0];
 
 		Object.values(items.children).forEach((item: any, idx: number) => {
@@ -49,10 +35,11 @@ const Index = () => {
 				<MainTextBox ref={aboutRef}>
 					<AboutItem className="about">
 						<span>안녕하세요 프론트엔드 개발자 이성훈입니다</span>
-						<span>저는 코드를 줄이고 재활용 시키는 것에 관심이 많아</span>
-						<span>Atomic 디자인 패턴을 사용하고있고</span>
-						<span>지속적인 기록을 중요하게 생각해서</span>
-						<span>리팩토링과 정리를 하고 있습니다</span>
+						<span>웹 프론트엔드 엔니로 일하고 있으며</span>
+						<span>React와 Recoil을 사용해서 개발하고 있습니다</span>
+						<span>저는 코드를 줄이고 재활용 시키는 것에 관심이 많으며</span>
+						<span>지속적인 기록을 중요하게 생각합니다</span>
+						<span>개인적인 의견보다 팀의 의견을 듣는 것이 중요하다고 생각합니다</span>
 					</AboutItem>
 
 					<>
@@ -64,17 +51,8 @@ const Index = () => {
 										{skillList[key].map((skill: string) => {
 											return (
 												<div key={skill} className="skillBox">
-													<Image
-														src={`/images/skill/${skill}.png`}
-														alt={skill}
-														width={85}
-														height={85}
-													/>
-													<span>
-														{skill.toUpperCase() === "STYLEDCOMPONENTS"
-															? "STYLED\nCOMPONENTS"
-															: skill.toUpperCase()}
-													</span>
+													<Image src={`/images/skill/${skill}.png`} alt={skill} width={85} height={85} />
+													<span>{skill.toUpperCase() === "STYLEDCOMPONENTS" ? "STYLED\nCOMPONENTS" : skill.toUpperCase()}</span>
 												</div>
 											);
 										})}
@@ -88,11 +66,7 @@ const Index = () => {
 					<a href="https://github.com/KAEN7" target="_blank" rel="noreferrer">
 						Github
 					</a>
-					<a
-						href="https://kusdsuna.tistory.com/"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<a href="https://kusdsuna.tistory.com/" target="_blank" rel="noreferrer">
 						Tistory
 					</a>
 				</SubTextBox>
@@ -129,6 +103,7 @@ const MainTextBox = styled.div`
 	align-items: flex-start;
 	height: 100%;
 	width: 100%;
+	scroll-snap-type: y mandatory;
 
 	span {
 		color: ${color.black};
@@ -145,6 +120,7 @@ const AboutItem = styled.div`
 	align-items: flex-start;
 	min-height: 100%;
 	width: 100%;
+	scroll-snap-align: center;
 
 	span {
 		font-family: "Anton";
@@ -166,6 +142,7 @@ const SkillBox = styled.div`
 	justify-content: flex-start;
 	min-height: 100%;
 	width: 100%;
+	scroll-snap-align: center;
 
 	.skillGroup {
 		display: flex;
