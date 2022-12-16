@@ -31,6 +31,8 @@ export const color = {
 	defaultBg: "#DDE0E7",
 	darkBg: "#B8C0D1",
 	deepDarkBg: "#302F30",
+	blue: "#0071e3",
+	orange: "#f56300",
 };
 
 // flex 디자인

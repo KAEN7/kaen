@@ -4,14 +4,12 @@ import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { RecoilRoot } from "recoil";
 
-import Main from "../components/Main";
-
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<RecoilRoot>
 			<Head>
 				<title>프론트엔드 개발자 이성훈입니다</title>
-				<meta name="description" content="find enjoy to Gallery" />
+				<meta name="description" content="프론트엔드 개발자 이성훈입니다" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<DefaultSeo
@@ -28,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				}}
 			/>
 
-			<Main Component={Component} pageProps={pageProps} />
+			<Component {...pageProps} />
 		</RecoilRoot>
 	);
 }

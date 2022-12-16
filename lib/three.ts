@@ -24,34 +24,48 @@ export const three = (name: string, loadingHandler: any) => {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
 	// LIGHT
-	const light = new THREE.SpotLight();
-	light.position.set(5, 5, 5);
+	// const light = new THREE.SpotLight();
+	const light = new THREE.DirectionalLight(0xffffff, 0.5);
+	// const light = new THREE.AmbientLight(0x404040);
+	light.position.set(4, 4, 5);
 	scene.add(light);
+
+	// const light1 = new THREE.AmbientLight(0xffffff, 0.2);
+	// scene.add(light1);
 
 	// CAMERA
 	const camera = new THREE.PerspectiveCamera(
-		75,
+		15,
 		window.innerWidth / window.innerHeight,
 		0.1,
 		1000
 	);
-	camera.position.x = 0.4;
-	camera.position.y = 2;
-	camera.position.z = 1;
+	camera.position.x = 10;
+	camera.position.y = 10;
+	camera.position.z = 10;
+
+	// let helper = new THREE.CameraHelper(light.shadow.camera);
+	// scene.add(helper);
 
 	// scene.background = new THREE.Color(color.defaultBg);
 
 	// document.body.appendChild(renderer.domElement);
 
 	const controls = new OrbitControls(camera, renderer.domElement);
-	controls.enableDamping = true;
+	controls.enableDamping = false;
 
 	// LOADER
 	const loader = new GLTFLoader();
 	loader.load(
 		`/gltf/${name}/scene.gltf`,
-		function (gltf) {
-			gltf.scene.traverse(function (child) {
+		function (gltf: any) {
+			const model = gltf.scene;
+
+			model.position.setX(4);
+			model.position.setY(0);
+			model.position.setX(0);
+
+			gltf.scene.traverse(function (child: any) {
 				if ((child as THREE.Mesh).isMesh) {
 					const m = child as THREE.Mesh;
 					m.receiveShadow = true;
@@ -69,9 +83,9 @@ export const three = (name: string, loadingHandler: any) => {
 			function animate() {
 				requestAnimationFrame(animate);
 
-				gltf.scene.rotation.z -= 0.001;
-				gltf.scene.rotation.y -= 0.002;
-				gltf.scene.rotation.x -= 0.003;
+				// gltf.scene.rotation.z -= 0.001;
+				gltf.scene.rotation.y -= 0.006;
+				// gltf.scene.rotation.x -= 0.003;
 
 				controls.update();
 
@@ -84,23 +98,23 @@ export const three = (name: string, loadingHandler: any) => {
 
 			scene.add(gltf.scene);
 		},
-		(xhr) => {
+		(xhr: any) => {
 			console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
 		},
-		(error) => {
-			console.log(error);
+		(error: any) => {
+			console.error(error);
 		}
 	);
 
-	() => {
-		window.addEventListener("resize", onWindowResize, false);
-		function onWindowResize() {
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			render();
-		}
-	};
+	// () => {
+	// 	window.addEventListener("resize", onWindowResize, false);
+	// 	function onWindowResize() {
+	// 		camera.aspect = window.innerWidth / window.innerHeight;
+	// 		camera.updateProjectionMatrix();
+	// 		renderer.setSize(window.innerWidth, window.innerHeight);
+	// 		render();
+	// 	}
+	// };
 
 	const stats = Stats();
 	// document.body.appendChild(stats.dom);
