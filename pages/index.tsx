@@ -15,6 +15,8 @@ interface IResumeList {
 	achievement: Array<string>;
 	resume: Array<{
 		title: string;
+		deploy: string;
+		github: string;
 		desc: Array<{ subTitle: string; subDesc: Array<string> }>;
 	}>;
 }
@@ -28,6 +30,8 @@ const resumeList: Array<IResumeList> = [
 		resume: [
 			{
 				title: "peri.Staking",
+				deploy: "https://staking.peri.finance/",
+				github: "https://github.com/perifinance/peri.staking",
 				desc: [
 					{
 						subTitle: "2가지의 새로운 기능 추가로 유저 유입율 향상",
@@ -49,6 +53,8 @@ const resumeList: Array<IResumeList> = [
 			},
 			{
 				title: "peri.Dex && peri.Dashboard",
+				deploy: "https://dex.peri.finance/",
+				github: "https://github.com/perifinance/peri.dex",
 				desc: [
 					{
 						subTitle:
@@ -64,6 +70,8 @@ const resumeList: Array<IResumeList> = [
 			},
 			{
 				title: "유지보수용 툴 제작",
+				deploy: "",
+				github: "https://github.com/perifinance/tvl-holders",
 				desc: [
 					{
 						subTitle: "TVL_Holders",
@@ -82,6 +90,8 @@ const resumeList: Array<IResumeList> = [
 			},
 			{
 				title: "nendNFT",
+				deploy: "https://nendnft.com/",
+				github: "https://github.com/perifinance/perifinance_NFT",
 				desc: [
 					{
 						subTitle: "CloudFront를 통한 정적 웹사이트 라이브 배포",
@@ -103,6 +113,8 @@ const resumeList: Array<IResumeList> = [
 		resume: [
 			{
 				title: "",
+				deploy: "",
+				github: "",
 				desc: [
 					{
 						subTitle:

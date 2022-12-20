@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled from "styled-components";
 import { color } from "../styles/theme";
 
@@ -9,6 +10,8 @@ interface IResume {
 		achievement: Array<string>;
 		resume: Array<{
 			title: string;
+			deploy: string;
+			github: string;
 			desc: Array<{ subTitle: string; subDesc: Array<string> }>;
 		}>;
 	}>;
@@ -32,9 +35,29 @@ const Resume = ({ list }: IResume) => {
 					</ul>
 
 					<ul className="resumeUl">
-						{resume.map(({ title, desc }) => (
+						{resume.map(({ title, desc, deploy, github }) => (
 							<li key={title} className="title">
-								<span>{title}</span>
+								<span>
+									{title}
+
+									<a href={deploy} target="_blank" rel="noreferrer">
+										<Image
+											src={`/images/icon/github.png`}
+											width={24}
+											height={24}
+											alt={"github"}
+										></Image>
+									</a>
+
+									<a href={github} target="_blank" rel="noreferrer">
+										<Image
+											src={`/images/icon/browser.png`}
+											width={24}
+											height={24}
+											alt={"browser"}
+										></Image>
+									</a>
+								</span>
 
 								{desc.map(({ subTitle, subDesc }) => (
 									<ul className="subResumeUl" key={subTitle}>
@@ -69,6 +92,14 @@ const ResumeBox = styled.div`
 		font-weight: bold;
 	}
 
+	a {
+		margin-left: 0.5rem;
+
+		&:first-child {
+			margin-left: 1rem;
+		}
+	}
+
 	.resumeUl {
 		padding: 0 2rem;
 		padding-bottom: 0.1rem;
@@ -79,6 +110,8 @@ const ResumeBox = styled.div`
 			list-style: none;
 
 			span {
+				display: flex;
+				align-items: flex-end;
 				font-weight: bold;
 				font-size: 1.3rem;
 			}
