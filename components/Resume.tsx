@@ -1,26 +1,12 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { color } from "../styles/theme";
+import resume from "../json/resume.json";
 
-interface IResume {
-	list: Array<{
-		company: string;
-		date: string;
-		position: string;
-		achievement: Array<string>;
-		resume: Array<{
-			title: string;
-			deploy: string;
-			github: string;
-			desc: Array<{ subTitle: string; subDesc: Array<string> }>;
-		}>;
-	}>;
-}
-
-const Resume = ({ list }: IResume) => {
+const Resume = () => {
 	return (
 		<ResumeSection>
-			{list.map(({ company, date, position, achievement, resume }) => (
+			{resume.map(({ company, date, position, achievement, resume }) => (
 				<ResumeBox key={company}>
 					<h3>{company}</h3>
 					<span style={{ display: "flex", marginBottom: "0.5rem" }}>

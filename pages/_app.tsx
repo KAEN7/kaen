@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { RecoilRoot } from "recoil";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
