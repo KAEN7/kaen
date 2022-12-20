@@ -38,7 +38,16 @@ const Home: NextPage = () => {
 			/> */}
 
 			<IntroductionBox>
-				<li>리액트와 최적화에 관심이 많은 웹 프론트엔드 개발자입니다</li>
+				<h3>EMAIL</h3>
+				<li>kusdsuna@naver.com</li>
+
+				<h3>BIRTHDAY</h3>
+				<li>96.02.26</li>
+
+				<h3>INTRO</h3>
+				<li>
+					안녕하세요, 리액트와 최적화에 관심이 많은 웹 프론트엔드 개발자입니다
+				</li>
 				<li>
 					{
 						"프론트엔드는 유저와 맨 앞에서 마주하는 직업이기에 \n 사용자 친화적으로 만들어야한다고 생각합니다"
@@ -72,11 +81,11 @@ const Home: NextPage = () => {
 			</SkillList>
 
 			<SubTitle>수상</SubTitle>
-			<ul>
+			<AwardList>
 				{award.map((item) => (
 					<li key={item}>{item}</li>
 				))}
-			</ul>
+			</AwardList>
 		</HomeSection>
 	);
 };
@@ -152,10 +161,17 @@ const IntroductionBox = styled.ul`
 	background: ${color.deepDarkBg};
 	padding: 9rem 1rem;
 
+	h3 {
+		width: 40rem;
+		font-weight: 800;
+		color: ${color.orange};
+	}
+
 	li {
 		width: 40rem;
 		margin-bottom: 1.5rem;
 		list-style: none;
+		line-height: 2rem;
 		font-size: 1.1rem;
 		font-weight: bold;
 		text-align: left;
@@ -178,18 +194,28 @@ const SubTitle = styled.h3`
 	width: 57rem;
 	font-size: 3rem;
 	margin-top: 3rem;
-	text-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	/* text-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4); */
 `;
 
 const SkillList = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	width: 57rem;
+	border-radius: 13px;
+	box-shadow: 0px 1px 20px ${color.gray};
+	background: #fefefe;
 
 	li {
 		list-style: none;
 		margin: 1rem;
 	}
+`;
+
+const AwardList = styled.ul`
+	display: flex;
+	flex-wrap: wrap;
+	width: 57rem;
+	margin-bottom: 10rem;
 `;
 
 export default Home;
