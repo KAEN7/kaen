@@ -6,10 +6,9 @@ import { loadingAtom } from "../store";
 import { color, overflowY } from "../styles/theme";
 
 import Resume from "../components/Resume";
-import Image from "next/image";
+import { clipboard } from "../lib/clipboard";
 import skill from "../json/skill.json";
-
-const award = ["2022.11 한화생명 드림플러스 블록체인 해커톤, 크로스트상 수상"];
+import award from "../json/award.json";
 
 const Home: NextPage = () => {
 	const [_, setLoading] = useRecoilState(loadingAtom);
@@ -28,18 +27,14 @@ const Home: NextPage = () => {
 				<a href="https://kusdsuna.tistory.com/">Blog</a>
 			</HrefBox>
 
-			{/* 
-			<Image
-				src="/images/arrow.svg"
-				alt="arrow"
-				width={500}
-				height={500}
-				// placeholder="blur"
-			/> */}
-
 			<IntroductionBox>
 				<h3>EMAIL</h3>
-				<li>kusdsuna@naver.com</li>
+				<li
+					onClick={() => clipboard("kusdsuna@naver.com")}
+					style={{ cursor: "pointer" }}
+				>
+					kusdsuna@naver.com
+				</li>
 
 				<h3>BIRTHDAY</h3>
 				<li>96.02.26</li>
@@ -68,16 +63,23 @@ const Home: NextPage = () => {
 
 			<SubTitle>기술</SubTitle>
 			<SkillList>
-				{skill.map((stack) => (
-					<li key={stack}>
-						<Image
-							src={`/images/skill/${stack}.png`}
-							width={85}
-							height={85}
-							alt={stack}
-						></Image>
-					</li>
-				))}
+				{Object.keys(skill).map((stack: any, idx: number) => {
+					const skills: any = { ...skill };
+
+					return (
+						<li key={idx}>
+							<h4>{stack.toUpperCase()}</h4>
+
+							<ul>
+								{skills[stack].map((item: any) => (
+									<li key={item}>
+										● <span>{item}</span>
+									</li>
+								))}
+							</ul>
+						</li>
+					);
+				})}
 			</SkillList>
 
 			<SubTitle>수상</SubTitle>
@@ -199,15 +201,34 @@ const SubTitle = styled.h3`
 
 const SkillList = styled.ul`
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
 	width: 57rem;
-	border-radius: 13px;
-	box-shadow: 0px 1px 20px ${color.gray};
-	background: #fefefe;
+	border-left: 3px solid ${color.darkBg};
 
 	li {
+		display: flex;
+		align-items: flex-start;
 		list-style: none;
 		margin: 1rem;
+
+		h4 {
+			padding: 0;
+			margin: 0;
+			width: 6rem;
+			word-wrap: break-word;
+			color: ${color.orange};
+		}
+
+		ul {
+			li {
+				margin: 0;
+				margin-bottom: 1rem;
+
+				span {
+					margin-left: 0.8rem;
+				}
+			}
+		}
 	}
 `;
 

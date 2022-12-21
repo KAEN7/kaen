@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { RecoilRoot } from "recoil";
-import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -11,8 +10,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<Head>
 				<title>프론트엔드 개발자 이성훈입니다</title>
 				<meta name="description" content="프론트엔드 개발자 이성훈입니다" />
+				<meta
+					name="keywords"
+					content="프론트엔드, 이력서, 프론트엔드 이력서, 개발자, HTML, CSS, JavaScript, React, frontend, TypeScript, StyledComponents"
+				/>
+				<meta name="author" content="이성훈" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
+
 			<DefaultSeo
 				title="프론트엔드 개발자 이성훈입니다"
 				description="프론트엔드 개발자 이성훈입니다"
