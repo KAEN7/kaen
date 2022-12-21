@@ -8,8 +8,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<RecoilRoot>
 			<Head>
-				<title>프론트엔드 개발자 이성훈입니다</title>
-				<meta name="description" content="프론트엔드 개발자 이성훈입니다" />
+				<title>프론트엔드 개발자 이성훈 이력서</title>
+				<meta name="description" content="프론트엔드 개발자 이성훈 이력서" />
 				<meta
 					name="keywords"
 					content="프론트엔드, 이력서, 프론트엔드 이력서, 개발자, HTML, CSS, JavaScript, React, frontend, TypeScript, StyledComponents"
@@ -20,14 +20,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<DefaultSeo
-				title="프론트엔드 개발자 이성훈입니다"
-				description="프론트엔드 개발자 이성훈입니다"
+				title="프론트엔드 개발자 이성훈 이력서"
+				description="프론트엔드 개발자 이성훈 이력서"
 				canonical="https://kaen.site"
 				openGraph={{
 					type: "website",
 					url: "https://kaen.site",
-					title: "프론트엔드 개발자 이성훈입니다",
-					description: "프론트엔드 개발자 이성훈입니다",
+					title: "프론트엔드 개발자 이성훈 이력서",
+					description: "프론트엔드 개발자 이성훈 이력서",
 					images: [{ url: "https://images/seo_bg.png" }],
 					site_name: "KAEN",
 				}}
