@@ -41,8 +41,11 @@ const Home: NextPage = () => {
 
 				<h3>INTRO</h3>
 				<li>
-					안녕하세요, 리액트와 최적화에 관심이 많은 웹 프론트엔드 개발자입니다
+					{
+						"안녕하세요, 리액트와 최적화에 관심이 많은 웹 프론트엔드 개발자입니다\n유저 유입과 유지를 위한 리팩토링을 경험해본 적이 있고\n부족한 부분을 파악하기 위해 커뮤니케이션을 활용합니다"
+					}
 				</li>
+
 				<li>
 					{
 						"프론트엔드는 유저와 맨 앞에서 마주하는 직업이기에 \n 사용자 친화적으로 만들어야한다고 생각합니다"
@@ -173,7 +176,7 @@ const IntroductionBox = styled.ul`
 		width: 40rem;
 		margin-bottom: 1.5rem;
 		list-style: none;
-		line-height: 2rem;
+		line-height: 2.4rem;
 		font-size: 1.1rem;
 		font-weight: bold;
 		text-align: left;
