@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -34,6 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			/>
 
 			<Component {...pageProps} />
+			<Analytics />
 		</RecoilRoot>
 	);
 }
