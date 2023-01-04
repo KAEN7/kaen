@@ -14,7 +14,7 @@ const Resume = () => {
 					</span>
 					<span>{position}</span>
 
-					<ul>
+					<ul className="achievementBox">
 						{achievement.map((item) => (
 							<li key={item[0] + "1"}>{item}</li>
 						))}
@@ -72,6 +72,7 @@ const Resume = () => {
 const ResumeSection = styled.div`
 	display: flex;
 	flex-direction: column;
+	width: 57rem;
 `;
 
 const ResumeBox = styled.div`
@@ -88,6 +89,13 @@ const ResumeBox = styled.div`
 		&:first-child {
 			margin-left: 1rem;
 		}
+	}
+
+	.achievementBox {
+		margin: 0;
+		padding: 0;
+		margin: 3rem 0;
+		font-weight: bold;
 	}
 
 	.resumeUl {
@@ -114,8 +122,10 @@ const ResumeBox = styled.div`
 	}
 
 	ul {
+		width: 100%;
 		li {
-			list-style: inside;
+			/* list-style: inside; */
+			list-style: none;
 			margin-top: 0.5rem;
 		}
 	}
