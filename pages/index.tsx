@@ -134,7 +134,8 @@ const HrefBox = styled.div`
 	display: flex;
 	justify-content: space-around;
 	width: 25rem;
-	margin-top: 12rem;
+	margin-top: 10rem;
+	margin-bottom: 2rem;
 
 	a {
 		width: 9rem;
