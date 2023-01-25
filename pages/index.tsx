@@ -121,6 +121,11 @@ const HomeSection = styled.main`
 		&:hover {
 			text-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 		}
+
+		@media ${(props) => props.theme.mobileL} {
+			font-size: 5rem;
+			text-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+		}
 	}
 
 	h2 {
@@ -171,6 +176,11 @@ const IntroductionBox = styled.ul`
 		width: 40rem;
 		font-weight: 800;
 		color: ${color.orange};
+
+		@media ${(props) => props.theme.mobileL} {
+			width: 100%;
+			font-size: 2rem;
+		}
 	}
 
 	li {
@@ -193,6 +203,10 @@ const IntroductionBox = styled.ul`
 		&:last-child {
 			margin: 0;
 		}
+
+		@media ${(props) => props.theme.mobileL} {
+			width: 100%;
+		}
 	}
 `;
 
@@ -208,6 +222,10 @@ const SkillList = styled.ul`
 	flex-direction: column;
 	width: 57rem;
 	border-left: 3px solid ${color.darkBg};
+
+	@media ${(props) => props.theme.mobileL} {
+		width: 100%;
+	}
 
 	li {
 		display: flex;
@@ -241,6 +259,10 @@ const AwardList = styled.ul`
 	flex-wrap: wrap;
 	width: 57rem;
 	margin-bottom: 10rem;
+
+	@media ${(props) => props.theme.mobileL} {
+		width: 100%;
+	}
 `;
 
 export default Home;

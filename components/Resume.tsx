@@ -73,6 +73,11 @@ const ResumeSection = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 57rem;
+
+	@media ${(props) => props.theme.mobileL} {
+		width: 100%;
+		padding: 0.5rem;
+	}
 `;
 
 const ResumeBox = styled.div`
