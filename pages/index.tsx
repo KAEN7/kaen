@@ -3,7 +3,7 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { loadingAtom } from "../store";
-import { color, overflowY } from "../styles/theme";
+import { color, customScrollbar, fadeIn, overflowY } from "../styles/theme";
 
 import Resume from "../components/Resume";
 import { clipboard } from "../lib/clipboard";
@@ -23,8 +23,8 @@ const Home: NextPage = () => {
 			<h1>
 				이성훈
 				<Image
-					width={44}
-					height={44}
+					width={38}
+					height={38}
 					src={"/images/icon/stamp.png"}
 					alt="stamp"
 				/>
@@ -45,33 +45,24 @@ const Home: NextPage = () => {
 					kusdsuna@naver.com
 				</li>
 
-				<h3>BIRTHDAY</h3>
-				<li>96.02.26</li>
-
 				<h3>INTRO</h3>
-				<li>
-					{
-						"안녕하세요, 리액트와 최적화에 관심이 많은 웹 프론트엔드 개발자입니다\n유저 유입과 유지를 위한 리팩토링을 경험해본 적이 있고\n부족한 부분을 파악하기 위해 커뮤니케이션을 활용합니다"
-					}
-				</li>
 
-				<li>
-					{
-						"프론트엔드는 유저와 맨 앞에서 마주하는 직업이기에 \n 사용자 친화적으로 만들어야한다고 생각합니다"
-					}
+				<li className="introHeader">
+					안녕하세요, 웹 프론트엔드 개발자 이성훈입니다.
 				</li>
 				<li>
-					리팩토링과 최적화에 관심이 많아 개선하기 위해 많은 투자를 하고
-					있습니다
+					사용자에게 좋은 경험을 제공하여 보람을 느끼고 싶은 마음에 개발자가
+					되었습니다.
 				</li>
-				<li>개인적인 의견보다 팀원들의 의견을 듣는 것을 중요하게 생각합니다</li>
+				<li>웹 프론트엔드에 관심이 많아 다양한 관련된 경험을 쌓고 싶습니다.</li>
 				<li>
-					기억은 짧지만 기록은 길다고 생각하며 지속적인 기록을 하고있습니다
+					조금씩이나마 얻게된 지식을 공유하고 오픈소스에도 기여하려 노력하고
+					있습니다.
 				</li>
 			</IntroductionBox>
 
 			<SubTitle>경력</SubTitle>
-			<Resume></Resume>
+			<Resume />
 
 			<SubTitle>기술</SubTitle>
 			<SkillList>
@@ -116,8 +107,7 @@ const HomeSection = styled.main`
 	margin: 0;
 	padding: 0;
 	background: ${color.defaultBg};
-	${overflowY}
-	overflow-x: hidden;
+	${customScrollbar}
 
 	h1 {
 		font-size: 13rem;
@@ -126,6 +116,7 @@ const HomeSection = styled.main`
 		margin-top: 23rem;
 		text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 		transition: all 0.3s ease 0s;
+		${fadeIn}
 
 		&:hover {
 			text-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
@@ -141,6 +132,7 @@ const HomeSection = styled.main`
 		letter-spacing: 0.5rem;
 		color: ${color.black};
 		text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+		${fadeIn}
 	}
 `;
 
@@ -150,6 +142,7 @@ const HrefBox = styled.div`
 	width: 25rem;
 	margin-top: 10rem;
 	margin-bottom: 2rem;
+	${fadeIn}
 
 	a {
 		width: 9rem;
@@ -186,6 +179,10 @@ const IntroductionBox = styled.ul`
 		font-weight: 800;
 		color: ${color.orange};
 
+		&:hover {
+			text-shadow: 0px 1px 10px ${color.orange};
+		}
+
 		@media ${(props) => props.theme.mobileL} {
 			font-size: 2rem;
 		}
@@ -193,10 +190,10 @@ const IntroductionBox = styled.ul`
 
 	li {
 		width: 40rem;
-		margin-bottom: 1.5rem;
+		margin-bottom: 1rem;
 		list-style: none;
 		line-height: 2.4rem;
-		font-size: 1.1rem;
+		font-size: 1.05rem;
 		font-weight: bold;
 		text-align: left;
 		white-space: pre-line;
@@ -204,13 +201,17 @@ const IntroductionBox = styled.ul`
 		transition: all 0.3s ease 0s;
 
 		&:hover {
-			text-shadow: 0px 15px 20px rgba(46, 229, 157, 0.2);
-			transform: translateY(-4px);
+			transform: translateY(-2px);
 		}
 
 		&:last-child {
 			margin: 0;
 		}
+	}
+
+	.introHeader {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
 	}
 `;
 

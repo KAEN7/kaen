@@ -1,14 +1,23 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { color } from "../styles/theme";
+
 import resume from "../json/resume.json";
 
 const Resume = () => {
 	return (
 		<ResumeSection>
-			{resume.map(({ company, date, position, achievement, resume }) => (
+			{resume.map(({ company, logo, date, position, achievement, resume }) => (
 				<ResumeBox key={company}>
-					<h3>{company}</h3>
+					<h3>
+						<Image
+							src={`/images/icon/${logo}_logo.png`}
+							width={30}
+							height={30}
+							alt={company}
+						/>
+						{" " + company}
+					</h3>
 					<span style={{ display: "flex", marginBottom: "0.5rem" }}>
 						{date}
 					</span>

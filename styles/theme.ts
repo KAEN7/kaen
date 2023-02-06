@@ -33,6 +33,7 @@ export const color = {
 	deepDarkBg: "#302F30",
 	blue: "#0071e3",
 	orange: "#f56300",
+	beige: "#D6AA9D",
 };
 
 // flex 디자인
@@ -61,6 +62,25 @@ export const pageSetting = css`
 	}
 `;
 
+export const customScrollbar = css`
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		height: 30%;
+		background: ${color.gray};
+		border-radius: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: none;
+	}
+`;
+
 export const overflowY = css`
 	overflow-y: auto;
 	::-webkit-scrollbar {
@@ -69,7 +89,7 @@ export const overflowY = css`
 `;
 
 export const fadeIn = css`
-	animation: fade-in 3s;
+	animation: fade-in 2s;
 
 	@keyframes fade-in {
 		from {
