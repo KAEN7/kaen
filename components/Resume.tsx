@@ -74,8 +74,7 @@ const ResumeSection = styled.div`
 	flex-direction: column;
 	width: 57rem;
 
-	@media ${(props) => props.theme.mobileL} {
-		width: 100%;
+	@media ${(props) => props.theme.desktopL} {
 		padding: 0.5rem;
 	}
 `;

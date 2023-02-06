@@ -9,6 +9,7 @@ import Resume from "../components/Resume";
 import { clipboard } from "../lib/clipboard";
 import skill from "../json/skill.json";
 import award from "../json/award.json";
+import Image from "next/image";
 
 const Home: NextPage = () => {
 	const [_, setLoading] = useRecoilState(loadingAtom);
@@ -19,7 +20,15 @@ const Home: NextPage = () => {
 
 	return (
 		<HomeSection>
-			<h1>이성훈</h1>
+			<h1>
+				이성훈
+				<Image
+					width={44}
+					height={44}
+					src={"/images/icon/stamp.png"}
+					alt="stamp"
+				/>
+			</h1>
 			<h2>Frontend Developer</h2>
 
 			<HrefBox>
@@ -114,7 +123,7 @@ const HomeSection = styled.main`
 		font-size: 13rem;
 		color: ${color.deepDarkBg};
 		margin: 0;
-		margin-top: 13rem;
+		margin-top: 23rem;
 		text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 		transition: all 0.3s ease 0s;
 
@@ -178,7 +187,6 @@ const IntroductionBox = styled.ul`
 		color: ${color.orange};
 
 		@media ${(props) => props.theme.mobileL} {
-			width: 100%;
 			font-size: 2rem;
 		}
 	}
@@ -203,10 +211,6 @@ const IntroductionBox = styled.ul`
 		&:last-child {
 			margin: 0;
 		}
-
-		@media ${(props) => props.theme.mobileL} {
-			width: 100%;
-		}
 	}
 `;
 
@@ -214,7 +218,6 @@ const SubTitle = styled.h3`
 	width: 57rem;
 	font-size: 3rem;
 	margin-top: 3rem;
-	/* text-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4); */
 `;
 
 const SkillList = styled.ul`
@@ -222,10 +225,6 @@ const SkillList = styled.ul`
 	flex-direction: column;
 	width: 57rem;
 	border-left: 3px solid ${color.darkBg};
-
-	@media ${(props) => props.theme.mobileL} {
-		width: 100%;
-	}
 
 	li {
 		display: flex;
@@ -259,10 +258,6 @@ const AwardList = styled.ul`
 	flex-wrap: wrap;
 	width: 57rem;
 	margin-bottom: 10rem;
-
-	@media ${(props) => props.theme.mobileL} {
-		width: 100%;
-	}
 `;
 
 export default Home;
