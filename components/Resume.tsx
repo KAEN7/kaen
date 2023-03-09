@@ -38,10 +38,10 @@ const Resume = () => {
 									{deploy !== "" && (
 										<a href={deploy} target="_blank" rel="noreferrer">
 											<Image
-												src={`/images/icon/github.png`}
+												src={`/images/icon/browser.png`}
 												width={24}
 												height={24}
-												alt={"github"}
+												alt={"deploy"}
 											></Image>
 										</a>
 									)}
@@ -49,10 +49,10 @@ const Resume = () => {
 									{github !== "" && (
 										<a href={github} target="_blank" rel="noreferrer">
 											<Image
-												src={`/images/icon/browser.png`}
+												src={`/images/icon/github.png`}
 												width={24}
 												height={24}
-												alt={"browser"}
+												alt={"github"}
 											></Image>
 										</a>
 									)}
