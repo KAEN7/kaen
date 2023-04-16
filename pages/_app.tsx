@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { RecoilRoot } from "recoil";
+import Header from "./Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
@@ -34,6 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				}}
 			/>
 
+			<Header />
 			<Component {...pageProps} />
 			<Analytics />
 		</RecoilRoot>
