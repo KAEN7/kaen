@@ -9,6 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@vercel/analytics": "^0.1.6",
 		"babel-preset-next": "^1.4.0",
 		"next": "12.1.6",
 		"next-seo": "^5.4.0",
@@ -17,7 +18,7 @@
 		"recoil": "^0.7.3",
 		"recoil-persist": "^4.2.0",
 		"styled-components": "^5.3.5",
-		"swiper": "^8.3.2",
+		"swiper": "^8.4.7",
 		"three": "^0.141.0"
 	},
 	"devDependencies": {

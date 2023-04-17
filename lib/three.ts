@@ -6,6 +6,11 @@ import Stats from "three/examples/jsm/libs/stats.module";
 export const three = (name: string, loadingHandler: any) => {
 	loadingHandler(true);
 
+	let mouseX = 0,
+		mouseY = 0;
+	let windowHalfX = window.innerWidth / 2;
+	let windowHalfY = window.innerHeight / 2;
+
 	const scene = new THREE.Scene();
 	// scene.add(new THREE.AxesHelper(5));
 
@@ -40,7 +45,7 @@ export const three = (name: string, loadingHandler: any) => {
 		0.1,
 		1000
 	);
-	camera.position.x = 10;
+	camera.position.x = 5;
 	camera.position.y = 10;
 	camera.position.z = 10;
 
@@ -84,7 +89,7 @@ export const three = (name: string, loadingHandler: any) => {
 				requestAnimationFrame(animate);
 
 				// gltf.scene.rotation.z -= 0.001;
-				gltf.scene.rotation.y -= 0.006;
+				// gltf.scene.rotation.y -= 0.006;
 				// gltf.scene.rotation.x -= 0.003;
 
 				controls.update();
@@ -94,7 +99,18 @@ export const three = (name: string, loadingHandler: any) => {
 				stats.update();
 			}
 
+			renderer.domElement.addEventListener(
+				"mousemove",
+				onDocumentMouseMove,
+				false
+			);
+
 			animate();
+
+			function onDocumentMouseMove(event: any) {
+				mouseX = event.clientX - windowHalfX;
+				mouseY = event.clientY - windowHalfY;
+			}
 
 			scene.add(gltf.scene);
 		},

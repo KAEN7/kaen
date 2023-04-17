@@ -1,0 +1,14 @@
+{
+	"frontEnd": [
+		"React",
+		"TypeScript",
+		"JavaScript",
+		"Next.js",
+		"Recoil",
+		"Redux",
+		"StyledComponents"
+	],
+	"backEnd": ["Node.js", "MongoDB"],
+	"cloudPlatForm": ["AWS", "Vercel"],
+	"tools": ["Jira", "Confluence", "Notion"]
+}

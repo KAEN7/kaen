@@ -1,0 +1,126 @@
+[
+	{
+		"company": "핀스프로토콜",
+		"logo": "pynthprotocol",
+		"date": "2022.03 ~ 2022.11",
+		"position": "개발팀/프론트엔드",
+		"achievement": [
+			"블록체인 금융 플랫폼인 핀스프로토콜에서 Defi 서비스 운영 및 신규 서비스를 개발했습니다.",
+			"최적화 및 모니터링툴 개발 등 사용자 경험을 끌어내기 위해 다양한 시도를 했습니다.",
+			"2주 단위 스프린트로 개발을 진행하였고, 팀원과 좀 더 좋은 서비스를 위해 새로운 기술 도입과 기존 소스 개선을 고민하는 등 개발 문화 정착을 시도했습니다."
+		],
+		"resume": [
+			{
+				"title": "peri.Staking",
+				"deploy": "https://staking.peri.finance/",
+				"github": "https://github.com/perifinance/peri.staking",
+				"desc": [
+					{
+						"subTitle": "기존 로딩 및 비동기 통신 속도가 느려 유저가 이탈하는 현상이 있었습니다.",
+						"subDesc": []
+					},
+					{
+						"subTitle": "해당 불편함을 해결하기 위해 병렬적 비동기 통신으로 변경해 기존 16초에서 38% 감소시켜 로딩 속도를 6초 빠르게 개선시켰습니다.",
+						"subDesc": []
+					},
+					{
+						"subTitle": "유저 유입을 위해 청산과 escrow 기능을 추가하여 새로운 유저 유입과 기존 유저풀을 유지하였습니다.",
+						"subDesc": []
+					}
+				]
+			},
+			{
+				"title": "peri.Dex && peri.Dashboard",
+				"deploy": "https://dex.peri.finance/",
+				"github": "https://github.com/perifinance/peri.dex",
+				"desc": [
+					{
+						"subTitle": "입사 후 서버와 데이터베이스가 동작되지 않던 기술적 문제를 인수인계 받았고 이를 수정하기 위해 백단을 새롭게 설계하는 작업을 진행하였습니다.",
+						"subDesc": []
+					},
+					{
+						"subTitle": "기존 The Graph 환경에서 GraphQL, REST API 환경으로 교체하였습니다.",
+						"subDesc": []
+					},
+					{
+						"subTitle": "코인 차트 UI 교체로 GA 기준 일평균 유입수 24명에서 38명으로 이용률을 개선하였습니다.",
+						"subDesc": []
+					}
+				]
+			},
+			{
+				"title": "유지보수용 툴 제작",
+				"deploy": "",
+				"github": "https://github.com/perifinance/tvl-holders",
+				"desc": [
+					{
+						"subTitle": "스마트 컨트랙트 및 마케팅 지표 모니터링을 위해 에러 및 로그 알림 툴과",
+						"subDesc": []
+					},
+					{
+						"subTitle": "크롤링을 사용한 지표 수집 자동화 작업을 진행해 불필요한 작업을 자동화 시켰습니다.",
+						"subDesc": []
+					}
+				]
+			}
+		]
+	},
+	{
+		"company": "Darkmunity",
+		"logo": "darkmunity",
+		"date": "2023.02 ~ 진행중",
+		"position": "개발팀/프론트엔드",
+		"achievement": [
+			"다크앤다커 커뮤니티 사이트로써 플레이어들이 소통할 수 있고 정보를 공유할 수 있는 공간을 개발중입니다.",
+			"자주 보여지는 정보는 최적화를 시도해 사용자 경험을 끌어내고 있습니다.",
+			"1인 개발 및 디자인으로 진행하고 있지만 Git Flow를 적용해 버전 관리를 진행하고 있습니다."
+		],
+		"resume": [
+			{
+				"title": "",
+				"deploy": "",
+				"github": "",
+				"desc": [
+					{
+						"subTitle": "컴포넌트 재활용을 위한 코드 분리",
+						"subDesc": [
+							"자주사용되는 컴포넌트 따로 분리시켜 재활용을 할 수 있도록 하였습니다.",
+							"Theme를 활용해 자주 사용되는 CSS 코드를 분리시켰습니다."
+						]
+					},
+					{
+						"subTitle": "게시판과 웹 에디터를 구현하기 위한 코드",
+						"subDesc": [
+							"mongoDB와 관련된 로직을 분리시켜 SSG에 맞게 적용시키고 있습니다.",
+							"mongoDB에 limit와 skip을 사용해 페이지네이션을 구현하고 있습니다."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"company": "한화생명 블록체인 해커톤",
+		"logo": "baroque",
+		"date": "2022.11",
+		"position": "개발팀/프론트엔드, 디자이너",
+		"achievement": [
+			"다크앤다커 커뮤니티 사이트로써 플레이어들이 소통할 수 있고 정보를 공유할 수 있는 공간을 개발중입니다.",
+			"자주 보여지는 정보는 최적화를 시도해 사용자 경험을 끌어내고 있습니다.",
+			"1인 개발 및 디자인으로 진행하고 있지만 Git Flow를 적용해 버전 관리를 진행하고 있습니다."
+		],
+		"resume": [
+			{
+				"title": "크러스트상 수상",
+				"deploy": "https://www.coindeskkorea.com/news/articleView.html?idxno=82312",
+				"github": "",
+				"desc": [
+					{
+						"subTitle": "",
+						"subDesc": ["", ""]
+					}
+				]
+			}
+		]
+	}
+]
