@@ -6,7 +6,6 @@ import { loadingAtom } from "../store";
 import { color, customScrollbar } from "../styles/theme";
 
 import { clipboard } from "../lib/clipboard";
-import skill from "../json/skill.json";
 import award from "../json/award.json";
 import { three } from "../lib/three";
 import { useEffect } from "react";

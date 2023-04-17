@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const Stack = () => {
 	return (
-		<StackSection>
-			<h3 id="stack">STACK</h3>
+		<StackSection id="stack">
+			<h3>STACK</h3>
 
 			<ul>
 				{[

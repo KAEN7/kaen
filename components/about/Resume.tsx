@@ -1,16 +1,31 @@
 import styled from "styled-components";
 import Card from "./Card";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Navigation, Mousewheel } from "swiper";
+import resume from "../../json/resume.json";
 
 const Resume = () => {
 	return (
-		<ResumeSection>
+		<ResumeSection id="resume">
 			<h3>RESUME</h3>
 
-			<ul>
-				{[""].map((item) => (
-					<Card key={item} />
+			<Swiper
+				effect={"coverflow"}
+				grabCursor={false}
+				centeredSlides={false}
+				touchRatio={0}
+				slidesPerView={3}
+				navigation={true} // 네비게이션 버튼
+				mousewheel={true} // 마우스 휠
+				modules={[Navigation, Mousewheel]} // 모듈추가
+				className="mySwiper"
+			>
+				{resume.map((item) => (
+					<SwiperSlide key={item.logo}>
+						<Card gltfName="pynth" item={item} />
+					</SwiperSlide>
 				))}
-			</ul>
+			</Swiper>
 		</ResumeSection>
 	);
 };
@@ -27,6 +42,20 @@ const ResumeSection = styled.section`
 		font-size: 78.6652px;
 		line-height: 95px;
 		letter-spacing: 0.32em;
+		margin-bottom: 130px;
+	}
+
+	.swiper-wrapper {
+		display: -webkit-inline-box;
+	}
+
+	.swiper {
+		display: flex;
+		width: 100%;
+	}
+
+	.swiper-slide {
+		display: flex;
 	}
 `;
 

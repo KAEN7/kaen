@@ -2,11 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { color, rainbowText } from "../styles/theme";
+import { color } from "../styles/theme";
 import Image from "next/image";
 
 const Header = () => {
-	const routeList = ["about", "resume", "about/#stack"];
+	const routeList = ["about", "stack", "resume"];
 	const router = useRouter();
 
 	console.log("router", router.pathname);
@@ -27,7 +27,7 @@ const Header = () => {
 			<RouteList>
 				{routeList.map((route) => (
 					<React.Fragment key={route}>
-						<Link href={`/${route}`}>
+						<Link href={`/${route === "about" ? route : `about/#${route}`}`}>
 							<a>{route.toUpperCase()}</a>
 						</Link>
 					</React.Fragment>
