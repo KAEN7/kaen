@@ -52,6 +52,7 @@ const HomeSection = styled.main`
 
 	canvas {
 		/* display: none; */
+		${fadeIn}
 	}
 
 	h1 {
