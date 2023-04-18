@@ -2,29 +2,34 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { color, rainbowText } from "../styles/theme";
+import { color } from "../styles/theme";
+import Image from "next/image";
 
 const Header = () => {
-	const routeList = ["about", "portfolio", "resume"];
+	const routeList = ["about", "stack", "resume"];
 	const router = useRouter();
 
 	console.log("router", router.pathname);
 
 	return (
 		<HeaderSection>
-			<Logo>
-				<Link href="/">
-					<a>KAEN</a>
-				</Link>
+			<Logo href="/">
+				<a>
+					<Image
+						src={`/images/icon/logo_white.svg`}
+						width={30}
+						height={30}
+						alt={"logo"}
+					/>
+				</a>
 			</Logo>
 
 			<RouteList>
 				{routeList.map((route) => (
 					<React.Fragment key={route}>
-						<Link href={`/${route}`}>
+						<Link href={`/${route === "about" ? route : `about/#${route}`}`}>
 							<a>{route.toUpperCase()}</a>
 						</Link>
-						{`/${route}` === router.pathname && <BorderLine></BorderLine>}
 					</React.Fragment>
 				))}
 			</RouteList>
@@ -34,33 +39,22 @@ const Header = () => {
 
 const HeaderSection = styled.header`
 	display: flex;
-	justify-content: space-around;
-	align-items: flex-end;
+	justify-content: space-between;
+	align-items: center;
 	top: 0;
-	width: 100%;
+	width: 100vw;
 	height: 8vh;
-	font-family: "Roboto";
-	background: ${color.defaultBg};
+	position: fixed;
+	padding: 0 3rem;
+	box-sizing: border-box;
+	background: none;
+	z-index: 98;
 `;
 
-const Logo = styled.div`
-	display: flex;
-	align-items: flex-end;
-	background: ${color.deepDarkBg};
-	color: ${color.white};
-	font-family: "Roboto";
-	width: fit-content;
-	height: 100%;
-	padding: 1rem;
-	box-sizing: border-box;
-
-	a {
-		letter-spacing: 0.2rem;
-
-		&:hover {
-			${rainbowText}
-		}
-	}
+const Logo = styled(Link)`
+	background: gray;
+	width: 10px;
+	height: 10px;
 `;
 
 const RouteList = styled.nav`
@@ -69,19 +63,9 @@ const RouteList = styled.nav`
 	a {
 		margin: 1rem;
 		font-weight: 500;
-		color: ${color.black};
+		color: ${color.white};
 		letter-spacing: 0.15rem;
-
-		&:hover {
-			${rainbowText}
-		}
 	}
-`;
-
-const BorderLine = styled.div`
-	height: 3px;
-	width: 100%;
-	background: ${color.black};
 `;
 
 export default Header;
