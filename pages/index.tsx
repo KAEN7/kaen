@@ -3,13 +3,10 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { loadingAtom } from "../store";
-import { color, customScrollbar } from "../styles/theme";
+import { color, customScrollbar, fadeIn } from "../styles/theme";
 
-import { clipboard } from "../lib/clipboard";
-import award from "../json/award.json";
 import { three } from "../lib/three";
 import { useEffect } from "react";
-import Header from "./Header";
 import Link from "next/link";
 
 const Home: NextPage = () => {
@@ -65,6 +62,7 @@ const HomeSection = styled.main`
 		font-size: 82.8054px;
 		line-height: 100px;
 		letter-spacing: 0.32em;
+		${fadeIn}
 	}
 
 	div {
@@ -74,6 +72,7 @@ const HomeSection = styled.main`
 		height: 3px;
 		top: 463px;
 		background-color: ${color.gray};
+		${fadeIn}
 	}
 
 	span {
@@ -87,6 +86,7 @@ const HomeSection = styled.main`
 		font-size: 30.9099px;
 		line-height: 37px;
 		letter-spacing: 0.12em;
+		${fadeIn}
 	}
 
 	a {
@@ -105,7 +105,14 @@ const HomeSection = styled.main`
 		font-weight: 700;
 		font-size: 24.6134px;
 		line-height: 30px;
-		cursor: pointer;
+		${fadeIn}
+		cursor: url("/images/cursor.png") 6 6, auto;
+
+		&:hover {
+			transition: ease-in-out 2s;
+			color: ${color.black};
+			background-color: ${color.gray};
+		}
 	}
 `;
 

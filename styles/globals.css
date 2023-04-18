@@ -12,6 +12,7 @@ body {
 	user-select: none;
 	color: #f8f8f8;
 	background-color: #141414;
+	cursor: url("../public/images/cursor.png") 6 6, auto;
 }
 
 a {

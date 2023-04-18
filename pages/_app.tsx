@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta name="description" content="프론트엔드 개발자 이성훈 이력서" />
 				<meta
 					name="keywords"
-					content="프론트엔드, 이력서, 프론트엔드 이력서, 개발자, HTML, CSS, JavaScript, React, frontend, TypeScript, StyledComponents"
+					content="프론트엔드, 이력서, 프론트엔드 이력서, 프론트엔드 포트폴리오, Frontend, Frontend Developer, Frontend Portfolio, 개발자, HTML, CSS, JavaScript, React, frontend, TypeScript, StyledComponents"
 				/>
 				<meta name="author" content="이성훈" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />

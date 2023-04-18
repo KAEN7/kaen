@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color } from "../../styles/theme";
+import { color, fadeIn } from "../../styles/theme";
 import Image from "next/image";
 
 const Overview = () => {
@@ -56,6 +56,7 @@ const OverviewSection = styled.section`
 	align-items: center;
 	width: 100%;
 	min-height: 100vh;
+	${fadeIn};
 
 	.aside {
 		display: flex;

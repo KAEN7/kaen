@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import Tilt from "react-parallax-tilt";
+import { fadeIn } from "../../styles/theme";
 
 const Intro = () => {
 	return (
@@ -9,7 +11,15 @@ const Intro = () => {
 				<span>안녕하세요.</span>
 				<span>프론트엔드 개발자</span>
 				<div>
-					<h3>이성훈</h3>
+					<Tilt
+						glareEnable={true}
+						tiltMaxAngleX={10}
+						tiltMaxAngleY={10}
+						perspective={1000}
+						glareColor={"rgb(0,0,0,0)"}
+					>
+						<h3>이성훈</h3>
+					</Tilt>
 					<span>입니다</span>
 				</div>
 			</div>
@@ -69,6 +79,11 @@ const IntroSection = styled.section`
 		line-height: 52px;
 		letter-spacing: 0.04em;
 		flex: 1;
+		${fadeIn};
+
+		span {
+			margin-bottom: 1rem;
+		}
 
 		div {
 			display: flex;
@@ -78,6 +93,7 @@ const IntroSection = styled.section`
 				font-weight: 700;
 				font-size: 78.6652px;
 				line-height: 95px;
+				margin: 3rem 0;
 			}
 		}
 	}

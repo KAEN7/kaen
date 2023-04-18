@@ -26,7 +26,7 @@ const Card = ({ item }: any) => {
 					<>
 						<h3>
 							<Image
-								src={`/images/icon/${logo}_logo.png`}
+								src={`/images/icon/${logo}.png`}
 								width={20}
 								height={20}
 								alt={company}
@@ -123,9 +123,10 @@ const CardItem = styled.div<ICardItem>`
 	background: ${color.white};
 	border-radius: 32.1415px;
 	position: relative;
+	transition: 0.3s ease-out;
 
 	span {
-		font-weight: 400;
+		font-weight: 500;
 		font-size: 25px;
 		line-height: 30px;
 		text-align: center;
@@ -140,7 +141,6 @@ const CardItem = styled.div<ICardItem>`
 		height: 100%;
 	}
 
-	transition: 0.3s ease-out;
 	${(props) =>
 		props.toggle &&
 		css`
@@ -162,17 +162,17 @@ const Detail = styled.div`
 	z-index: 2;
 
 	span {
-		font-size: 1rem;
+		font-size: 0.5rem;
 	}
 
 	h3 {
-		font-size: 1rem;
 		margin-bottom: 0;
+		font-size: 1rem;
 	}
 
 	ul,
 	li {
-		font-size: 0.5rem;
+		font-size: 0.2rem;
 	}
 `;
 

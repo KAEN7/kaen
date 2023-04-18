@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Tilt from "react-parallax-tilt";
 
 const Stack = () => {
 	return (
@@ -19,9 +20,16 @@ const Stack = () => {
 					{ stack: "Vercel", color: "#000000" },
 					{ stack: "MongoDB", color: "#10AA50" },
 				].map(({ stack, color }) => (
-					<StackItem key={stack} color={color}>
-						{stack}
-					</StackItem>
+					<Tilt
+						key={stack}
+						glareEnable={true}
+						tiltMaxAngleX={10}
+						tiltMaxAngleY={10}
+						perspective={1000}
+						glareColor={"rgb(0,0,0,0)"}
+					>
+						<StackItem color={color}>{stack}</StackItem>
+					</Tilt>
 				))}
 			</ul>
 		</StackSection>
