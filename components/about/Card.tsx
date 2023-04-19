@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { loadingAtom } from "../../store";
 import { three } from "../../lib/three";
+import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 
 const Card = ({ item }: any) => {
@@ -30,6 +31,7 @@ const Card = ({ item }: any) => {
 								width={20}
 								height={20}
 								alt={company}
+								priority
 							/>
 							{" " + company}
 						</h3>
@@ -58,6 +60,7 @@ const Card = ({ item }: any) => {
 												width={10}
 												height={10}
 												alt={"deploy"}
+												priority
 											></Image>
 										</a>
 									)}
@@ -69,6 +72,7 @@ const Card = ({ item }: any) => {
 												width={10}
 												height={10}
 												alt={"github"}
+												priority
 											></Image>
 										</a>
 									)}
@@ -98,6 +102,7 @@ const Card = ({ item }: any) => {
 						height={150}
 						layout="fixed"
 						alt={logo}
+						priority
 					/>
 					{/* <canvas id={gltfName}></canvas> */}
 					<span>{date}</span>
@@ -124,6 +129,12 @@ const CardItem = styled.div<ICardItem>`
 	border-radius: 32.1415px;
 	position: relative;
 	transition: 0.3s ease-out;
+	box-shadow: 0px 0px 5px ${color.gray};
+	cursor: pointer;
+
+	&:hover {
+		box-shadow: 0px 0px 15px ${color.gray};
+	}
 
 	span {
 		font-weight: 500;

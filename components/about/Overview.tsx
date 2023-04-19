@@ -15,6 +15,7 @@ const Overview = () => {
 						height={30}
 						layout="fixed"
 						alt={"cross"}
+						priority
 					/>
 				</div>
 			</div>

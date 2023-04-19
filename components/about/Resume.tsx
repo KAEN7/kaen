@@ -3,6 +3,7 @@ import Card from "./Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation, Mousewheel } from "swiper";
 import resume from "../../json/resume.json";
+import Tilt from "react-parallax-tilt";
 
 const Resume = () => {
 	return (
@@ -22,7 +23,15 @@ const Resume = () => {
 			>
 				{resume.map((item) => (
 					<SwiperSlide key={item.logo}>
-						<Card gltfName="pynth" item={item} />
+						<Tilt
+							glareEnable={true}
+							tiltMaxAngleX={10}
+							tiltMaxAngleY={10}
+							perspective={1000}
+							glareColor={"rgb(0,0,0,0)"}
+						>
+							<Card gltfName="pynth" item={item} />
+						</Tilt>
 					</SwiperSlide>
 				))}
 			</Swiper>

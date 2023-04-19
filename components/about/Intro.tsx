@@ -30,12 +30,14 @@ const Intro = () => {
 					className="bubble"
 					layout="fill"
 					alt="bubble"
+					priority
 				/>
 				<Image
 					src={`/images/icon/profile.png`}
 					className="profile"
 					layout="fill"
 					alt="profile"
+					priority
 				/>
 				<nav>
 					{[
@@ -52,6 +54,7 @@ const Intro = () => {
 										width={49}
 										height={49}
 										alt={`${name}`}
+										priority
 									/>
 								</a>
 							</Link>

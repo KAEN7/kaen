@@ -20,6 +20,7 @@ const Header = () => {
 						width={30}
 						height={30}
 						alt={"logo"}
+						priority
 					/>
 				</a>
 			</Logo>
