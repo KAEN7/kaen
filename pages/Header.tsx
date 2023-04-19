@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { color } from "../styles/theme";
 import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
 
 const Header = () => {
 	const routeList = ["about", "stack", "resume"];
-	const router = useRouter();
+	const [isMobile, setIsMobile] = useState(false);
+	const mobile = useMediaQuery({ query: "(max-width: 767px" });
 
-	console.log("router", router.pathname);
+	useEffect(() => {
+		if (mobile) {
+			setIsMobile(mobile);
+		}
+	}, [mobile]);
 
 	return (
-		<HeaderSection>
+		<HeaderSection mobile={isMobile}>
 			<Logo href="/">
 				<a>
 					<Image
@@ -25,20 +30,26 @@ const Header = () => {
 				</a>
 			</Logo>
 
-			<RouteList>
-				{routeList.map((route) => (
-					<React.Fragment key={route}>
-						<Link href={`/${route === "about" ? route : `about/#${route}`}`}>
-							<a>{route.toUpperCase()}</a>
-						</Link>
-					</React.Fragment>
-				))}
-			</RouteList>
+			{!isMobile && (
+				<RouteList>
+					{routeList.map((route) => (
+						<React.Fragment key={route}>
+							<Link href={`/${route === "about" ? route : `about/#${route}`}`}>
+								<a>{route.toUpperCase()}</a>
+							</Link>
+						</React.Fragment>
+					))}
+				</RouteList>
+			)}
 		</HeaderSection>
 	);
 };
 
-const HeaderSection = styled.header`
+interface IHeaderSection {
+	mobile: boolean;
+}
+
+const HeaderSection = styled.header<IHeaderSection>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -50,6 +61,12 @@ const HeaderSection = styled.header`
 	box-sizing: border-box;
 	background: none;
 	z-index: 98;
+
+	${(props) =>
+		props.mobile &&
+		css`
+			justify-content: center;
+		`}
 `;
 
 const Logo = styled(Link)`

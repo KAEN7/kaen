@@ -1,16 +1,24 @@
 import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
+import Link from "next/link";
 
 import { loadingAtom } from "../store";
 import { color, customScrollbar, fadeIn } from "../styles/theme";
-
 import { three } from "../lib/three";
-import { useEffect } from "react";
-import Link from "next/link";
 
 const Home: NextPage = () => {
 	const [_, setLoading] = useRecoilState(loadingAtom);
+	const [isMobile, setIsMobile] = useState(false);
+	const mobile = useMediaQuery({ query: "(max-width: 767px" });
+
+	useEffect(() => {
+		if (mobile) {
+			setIsMobile(mobile);
+		}
+	}, [mobile]);
 
 	const gltfName = "abstract_cloud";
 
@@ -23,20 +31,25 @@ const Home: NextPage = () => {
 	}, []);
 
 	return (
-		<HomeSection>
+		<HomeSection mobile={isMobile}>
 			<canvas id={gltfName}></canvas>
 
 			<h1>SUNGHUN LEE</h1>
 			<div></div>
 			<span>Frontend Developer</span>
-			<Link href="/about">
+
+			<Link href="/about" className="wrapper">
 				<a>About me</a>
 			</Link>
 		</HomeSection>
 	);
 };
 
-const HomeSection = styled.main`
+interface IHomeSection {
+	mobile: boolean;
+}
+
+const HomeSection = styled.main<IHomeSection>`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -48,7 +61,7 @@ const HomeSection = styled.main`
 	margin: 0;
 	padding: 0;
 	background: ${color.black};
-	${customScrollbar}
+	${props => !props.mobile && customScrollbar}
 
 	canvas {
 		/* display: none; */
@@ -58,10 +71,10 @@ const HomeSection = styled.main`
 	h1 {
 		position: absolute;
 		margin: 0 auto;
-		top: 336px;
+		top: 21rem;
 		font-weight: 700;
-		font-size: 82.8054px;
-		line-height: 100px;
+		font-size: ${(props) => (props.mobile ? "2rem" : "5.1753rem")};
+		line-height: 6.25rem;
 		letter-spacing: 0.32em;
 		${fadeIn}
 	}
@@ -69,9 +82,9 @@ const HomeSection = styled.main`
 	div {
 		position: absolute;
 		margin: 0 auto;
-		width: 421px;
-		height: 3px;
-		top: 463px;
+		width: ${(props) => (props.mobile ? "22rem" : "26.3125rem")};
+		height: 0.1875rem;
+		top: 28.9375rem;
 		background-color: ${color.gray};
 		${fadeIn}
 	}
@@ -79,15 +92,23 @@ const HomeSection = styled.main`
 	span {
 		position: absolute;
 		margin: 0 auto;
-		top: 493px;
+		top: 30.8125rem;
 
 		font-family: "Inter";
 		font-style: normal;
 		font-weight: 700;
-		font-size: 30.9099px;
-		line-height: 37px;
+		font-size: ${(props) => (props.mobile ? "1.3rem" : "1.9319rem")};
+		line-height: 2.3125rem;
 		letter-spacing: 0.12em;
 		${fadeIn}
+	}
+
+	.wrapper {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 0;
 	}
 
 	a {
@@ -95,24 +116,23 @@ const HomeSection = styled.main`
 		justify-content: center;
 		align-items: center;
 		position: absolute;
-		width: 258px;
-		height: 58.93px;
-		top: 639.54px;
+		width: 16.125rem;
+		height: 3.6831rem;
+		top: 39.9712rem;
 		background: none;
 		color: ${color.gray};
-		border: 3.18519px solid ${color.gray};
-		border-radius: 38.2222px;
+		border: 0.1875rem solid ${color.gray};
+		border-radius: 3rem;
 		box-sizing: border-box;
 		font-weight: 700;
-		font-size: 24.6134px;
-		line-height: 30px;
+		font-size: 1.5383rem;
+		line-height: 1.875rem;
 		${fadeIn}
 		cursor: url("/images/cursor.png") 6 6, auto;
 
 		&:hover {
-			transition: ease-in-out 2s;
-			color: ${color.black};
-			background-color: ${color.gray};
+			box-shadow: 0px 0px 15px ${color.gray};
+			color: ${color.white};
 		}
 	}
 `;

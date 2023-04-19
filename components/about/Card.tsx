@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { loadingAtom } from "../../store";
 import { three } from "../../lib/three";
-import Tilt from "react-parallax-tilt";
 import Image from "next/image";
 
 const Card = ({ item }: any) => {
 	const [_, setLoading] = useRecoilState(loadingAtom);
+	// ! toggle 기능 임시 비활성화 상태
 	const [toggle, setToggle] = useState(false);
 	const { company, logo, date, position, achievement, resume } = item;
 
@@ -21,7 +21,7 @@ const Card = ({ item }: any) => {
 	}, []);
 
 	return (
-		<CardItem toggle={toggle} onClick={() => setToggle(!toggle)}>
+		<CardItem toggle={toggle} onClick={() => setToggle(false)}>
 			{toggle ? (
 				<Detail>
 					<>

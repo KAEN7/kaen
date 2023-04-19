@@ -1,12 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Tilt from "react-parallax-tilt";
 import { fadeIn } from "../../styles/theme";
+import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from "react";
 
 const Intro = () => {
+	const [isMobile, setIsMobile] = useState(false);
+	const mobile = useMediaQuery({ query: "(max-width: 767px" });
+
+	useEffect(() => {
+		if (mobile) {
+			setIsMobile(mobile);
+		}
+	}, [mobile]);
+
 	return (
-		<IntroSection>
+		<IntroSection mobile={isMobile}>
 			<div className="desc">
 				<span>안녕하세요.</span>
 				<span>프론트엔드 개발자</span>
@@ -66,8 +77,13 @@ const Intro = () => {
 	);
 };
 
-const IntroSection = styled.section`
+interface IIntroSection {
+	mobile: boolean;
+}
+
+const IntroSection = styled.section<IIntroSection>`
 	display: flex;
+	flex-direction: ${(props) => (props.mobile ? "column" : "row")};
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
@@ -77,12 +93,20 @@ const IntroSection = styled.section`
 	.desc {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 		font-weight: 700;
-		font-size: 43.0588px;
+		font-size: ${(props) => (props.mobile ? "2rem" : "43.0588px")};
 		line-height: 52px;
 		letter-spacing: 0.04em;
 		flex: 1;
 		${fadeIn};
+
+		${(props) =>
+			props.mobile &&
+			css`
+				padding-top: 9rem;
+				box-sizing: border-box;
+			`}
 
 		span {
 			margin-bottom: 1rem;
@@ -94,9 +118,9 @@ const IntroSection = styled.section`
 
 			h3 {
 				font-weight: 700;
-				font-size: 78.6652px;
-				line-height: 95px;
-				margin: 3rem 0;
+				font-size: ${(props) => (props.mobile ? "4rem" : "4.9166rem")};
+				line-height: 5.9375rem;
+				margin: ${(props) => (props.mobile ? "1rem 0" : "3rem 0")};
 			}
 		}
 	}
@@ -108,6 +132,13 @@ const IntroSection = styled.section`
 		position: relative;
 		height: 40rem;
 		flex: 1;
+
+		${(props) =>
+			props.mobile &&
+			css`
+				width: 100%;
+				height: 10rem;
+			`}
 
 		.profile {
 			transform: scale(0.65);

@@ -88,8 +88,8 @@ export const three = (name: string, loadingHandler: any) => {
 			function animate() {
 				requestAnimationFrame(animate);
 
-				gltf.scene.rotation.z += 0.0001;
-				gltf.scene.rotation.y -= 0.0001;
+				gltf.scene.rotation.z += 0.0008;
+				gltf.scene.rotation.y -= 0.0008;
 				// gltf.scene.rotation.x -= 0.001;
 
 				controls.update();

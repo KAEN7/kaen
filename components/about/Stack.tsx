@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Tilt from "react-parallax-tilt";
+import { useMediaQuery } from "react-responsive";
 
 const Stack = () => {
+	const [isMobile, setIsMobile] = useState(false);
+	const mobile = useMediaQuery({ query: "(max-width: 47.9375rem" });
+
+	useEffect(() => {
+		if (mobile) {
+			setIsMobile(mobile);
+		}
+	}, [mobile]);
+
 	return (
-		<StackSection id="stack">
+		<StackSection id="stack" mobile={isMobile}>
 			<h3>STACK</h3>
 
 			<ul>
@@ -28,7 +39,9 @@ const Stack = () => {
 						perspective={1000}
 						glareColor={"rgb(0,0,0,0)"}
 					>
-						<StackItem color={color}>{stack}</StackItem>
+						<StackItem color={color} mobile={isMobile}>
+							{stack}
+						</StackItem>
 					</Tilt>
 				))}
 			</ul>
@@ -36,7 +49,11 @@ const Stack = () => {
 	);
 };
 
-const StackSection = styled.section`
+interface IStackSection {
+	mobile: boolean;
+}
+
+const StackSection = styled.section<IStackSection>`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -47,8 +64,9 @@ const StackSection = styled.section`
 	h3 {
 		width: 100%;
 		font-weight: 700;
-		font-size: 78.6652px;
-		line-height: 95px;
+		font-size: ${(props) => (props.mobile ? "3rem" : "4.9166rem")};
+		text-align: ${(props) => (props.mobile ? "center" : "left")};
+		line-height: 5.9375rem;
 		letter-spacing: 0.32em;
 	}
 
@@ -58,24 +76,27 @@ const StackSection = styled.section`
 		flex-wrap: wrap;
 		list-style-type: none;
 		width: 100%;
+		padding: 0;
 	}
 `;
 
 interface IStackItem {
 	color: string;
+	mobile: boolean;
 }
 
 const StackItem = styled.li<IStackItem>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 	margin: 1rem 0.5rem;
-	padding: 0.5rem 3rem;
+	padding: ${(props) => (props.mobile ? "0.3rem 1.3rem" : "0.5rem 3rem")};
 	background: ${(props) => props.color};
-	border-radius: 33px;
+	border-radius: 2.0625rem;
 	font-weight: 700;
-	font-size: 40px;
-	line-height: 48px;
+	font-size: ${(props) => (props.mobile ? "1.4rem" : "2.5rem")};
+	line-height: 3rem;
 	filter: saturate(75%);
 `;
 

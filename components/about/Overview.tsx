@@ -1,30 +1,43 @@
-import styled from "styled-components";
-import { color, fadeIn } from "../../styles/theme";
+import { useEffect, useState } from "react";
+import styled, { css } from "styled-components";
 import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
+import { color, fadeIn } from "../../styles/theme";
 
 const Overview = () => {
-	return (
-		<OverviewSection>
-			<div className="aside">
-				<span>OVERVIEW</span>
+	const [isMobile, setIsMobile] = useState(false);
+	const mobile = useMediaQuery({ query: "(max-width: 767px" });
 
-				<div className="cross">
-					<Image
-						src={`/images/icon/cross.png`}
-						width={30}
-						height={30}
-						layout="fixed"
-						alt={"cross"}
-						priority
-					/>
+	useEffect(() => {
+		if (mobile) {
+			setIsMobile(mobile);
+		}
+	}, [mobile]);
+
+	return (
+		<OverviewSection mobile={isMobile}>
+			{!isMobile && (
+				<div className="aside">
+					<span>OVERVIEW</span>
+
+					<div className="cross">
+						<Image
+							src={`/images/icon/cross.png`}
+							width={30}
+							height={30}
+							layout="fixed"
+							alt={"cross"}
+							priority
+						/>
+					</div>
 				</div>
-			</div>
+			)}
 
 			<div className="content">
 				<span>항상 개선점을 찾는것을 추구하는</span>
-				<h3>
-					프론트엔드 개발자 이성훈 <span>입니다.</span>
-				</h3>
+				<span>
+					<h3>프론트엔드 개발자 이성훈</h3> 입니다.
+				</span>
 
 				<ul>
 					<li>
@@ -51,12 +64,17 @@ const Overview = () => {
 	);
 };
 
-const OverviewSection = styled.section`
+interface IOverviewSection {
+	mobile: boolean;
+}
+
+const OverviewSection = styled.section<IOverviewSection>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	min-height: 100vh;
+	height: fit-content;
 	${fadeIn};
 
 	.aside {
@@ -92,29 +110,33 @@ const OverviewSection = styled.section`
 		margin-top: 2rem;
 
 		h3 {
+			display: flex;
 			color: ${color.point};
 			font-style: normal;
 			font-weight: 700;
-			font-size: 3.3162rem;
+			font-size: ${(props) => (props.mobile ? "1.4rem" : "3.3162rem")};
 			line-height: 0.125rem;
 		}
 
 		span {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			width: 100%;
 			color: ${color.white};
 			font-style: normal;
 			font-weight: 700;
-			font-size: 2.6912rem;
-			line-height: 1.375rem;
+			font-size: ${(props) => (props.mobile ? "1rem" : "2.6912rem")};
 		}
 
 		ul {
 			li {
 				font-weight: 700;
-				font-size: 1.5625rem;
+				font-size: ${(props) => (props.mobile ? "1rem" : "1.5625rem")};
 				line-height: 2.375rem;
 				color: ${color.gray};
-				margin-bottom: 1rem;
-				line-height: 2.5rem;
+				margin-bottom: ${(props) => (props.mobile ? "0.5rem" : "1rem")};
+				line-height: ${(props) => (props.mobile ? "1.5rem" : "2.5rem")};
 			}
 		}
 	}

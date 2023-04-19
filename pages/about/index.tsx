@@ -1,13 +1,25 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
+
 import Intro from "../../components/about/Intro";
-import { customScrollbar } from "../../styles/theme";
 import Overview from "../../components/about/Overview";
 import Stack from "../../components/about/Stack";
 import Resume from "../../components/about/Resume";
+import { customScrollbar } from "../../styles/theme";
 
 const About = () => {
+	const [isMobile, setIsMobile] = useState(false);
+	const mobile = useMediaQuery({ query: "(max-width: 767px" });
+
+	useEffect(() => {
+		if (mobile) {
+			setIsMobile(mobile);
+		}
+	}, [mobile]);
+
 	return (
-		<AboutSection>
+		<AboutSection mobile={isMobile}>
 			<Intro />
 			<Overview />
 			<Stack />
@@ -16,7 +28,11 @@ const About = () => {
 	);
 };
 
-const AboutSection = styled.section`
+interface IAboutSection {
+	mobile: boolean;
+}
+
+const AboutSection = styled.section<IAboutSection>`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -24,7 +40,7 @@ const AboutSection = styled.section`
 	width: 100vw;
 	height: 100vh;
 	padding-top: 8vh;
-	padding: 0 20rem;
+	padding: ${(props) => (props.mobile ? "0 2rem" : "0 20rem")};
 	${customScrollbar};
 
 	.bubble path {

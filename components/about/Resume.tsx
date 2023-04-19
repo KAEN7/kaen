@@ -1,13 +1,25 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Card from "./Card";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Navigation, Mousewheel } from "swiper";
-import resume from "../../json/resume.json";
+import { Navigation, Mousewheel } from "swiper";
 import Tilt from "react-parallax-tilt";
+import { useMediaQuery } from "react-responsive";
+
+import resume from "../../json/resume.json";
+import Card from "./Card";
 
 const Resume = () => {
+	const [isMobile, setIsMobile] = useState(false);
+	const mobile = useMediaQuery({ query: "(max-width: 47.9375rem" });
+
+	useEffect(() => {
+		if (mobile) {
+			setIsMobile(mobile);
+		}
+	}, [mobile]);
+
 	return (
-		<ResumeSection id="resume">
+		<ResumeSection id="resume" mobile={isMobile}>
 			<h3>RESUME</h3>
 
 			<Swiper
@@ -15,7 +27,7 @@ const Resume = () => {
 				grabCursor={false}
 				centeredSlides={false}
 				touchRatio={0}
-				slidesPerView={3}
+				slidesPerView={mobile ? 1 : 3}
 				navigation={true} // 네비게이션 버튼
 				mousewheel={true} // 마우스 휠
 				modules={[Navigation, Mousewheel]} // 모듈추가
@@ -30,7 +42,7 @@ const Resume = () => {
 							perspective={1000}
 							glareColor={"rgb(0,0,0,0)"}
 						>
-							<Card gltfName="pynth" item={item} />
+							<Card item={item} />
 						</Tilt>
 					</SwiperSlide>
 				))}
@@ -39,7 +51,11 @@ const Resume = () => {
 	);
 };
 
-const ResumeSection = styled.section`
+interface IResumeSection {
+	mobile: boolean;
+}
+
+const ResumeSection = styled.section<IResumeSection>`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -48,10 +64,11 @@ const ResumeSection = styled.section`
 	h3 {
 		width: 100%;
 		font-weight: 700;
-		font-size: 78.6652px;
-		line-height: 95px;
+		font-size: ${(props) => (props.mobile ? "3rem" : "4.9166rem")};
+		text-align: ${(props) => (props.mobile ? "center" : "left")};
+		line-height: 5.9375rem;
 		letter-spacing: 0.32em;
-		margin-bottom: 130px;
+		margin-bottom: 8.125rem;
 	}
 
 	.swiper-wrapper {
