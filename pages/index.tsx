@@ -61,7 +61,7 @@ const HomeSection = styled.main<IHomeSection>`
 	margin: 0;
 	padding: 0;
 	background: ${color.black};
-	${props => !props.mobile && customScrollbar}
+	${(props) => !props.mobile && customScrollbar}
 
 	canvas {
 		/* display: none; */
@@ -71,7 +71,7 @@ const HomeSection = styled.main<IHomeSection>`
 	h1 {
 		position: absolute;
 		margin: 0 auto;
-		top: 21rem;
+		top: ${(props) => (props.mobile ? "19rem" : "21rem")};
 		font-weight: 700;
 		font-size: ${(props) => (props.mobile ? "2rem" : "5.1753rem")};
 		line-height: 6.25rem;
@@ -84,7 +84,7 @@ const HomeSection = styled.main<IHomeSection>`
 		margin: 0 auto;
 		width: ${(props) => (props.mobile ? "22rem" : "26.3125rem")};
 		height: 0.1875rem;
-		top: 28.9375rem;
+		top: ${(props) => (props.mobile ? "25.9375rem" : "28.9375rem")};
 		background-color: ${color.gray};
 		${fadeIn}
 	}
@@ -93,7 +93,7 @@ const HomeSection = styled.main<IHomeSection>`
 		position: absolute;
 		margin: 0 auto;
 		top: 30.8125rem;
-
+		top: ${(props) => (props.mobile ? "27.8125rem" : "30.8125rem")};
 		font-family: "Inter";
 		font-style: normal;
 		font-weight: 700;
@@ -118,7 +118,7 @@ const HomeSection = styled.main<IHomeSection>`
 		position: absolute;
 		width: 16.125rem;
 		height: 3.6831rem;
-		top: 39.9712rem;
+		top: ${(props) => (props.mobile ? "36.9712rem" : "39.9712rem")};
 		background: none;
 		color: ${color.gray};
 		border: 0.1875rem solid ${color.gray};
