@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useMediaQuery } from "react-responsive";
 
 import Intro from "../../components/about/Intro";
@@ -10,16 +10,22 @@ import { customScrollbar } from "../../styles/theme";
 
 const About = () => {
 	const [isMobile, setIsMobile] = useState(false);
+	const [isLabtop, setIsLabtop] = useState(false);
 	const mobile = useMediaQuery({ query: "(max-width: 767px" });
+	const labtop = useMediaQuery({ query: "(max-width: 1440px" });
 
 	useEffect(() => {
 		if (mobile) {
 			setIsMobile(mobile);
 		}
-	}, [mobile]);
+
+		if (labtop) {
+			setIsLabtop(labtop);
+		}
+	}, [mobile, labtop]);
 
 	return (
-		<AboutSection mobile={isMobile}>
+		<AboutSection mobile={isMobile} labtop={isLabtop}>
 			<Intro />
 			<Overview />
 			<Stack />
@@ -30,6 +36,7 @@ const About = () => {
 
 interface IAboutSection {
 	mobile: boolean;
+	labtop: boolean;
 }
 
 const AboutSection = styled.section<IAboutSection>`
@@ -42,6 +49,13 @@ const AboutSection = styled.section<IAboutSection>`
 	padding-top: 8vh;
 	padding: ${(props) => (props.mobile ? "0 2rem" : "0 20rem")};
 	${customScrollbar};
+
+	${(props) =>
+		props.labtop &&
+		css`
+			padding: 10rem;
+			padding-top: 4vh;
+		`}
 
 	.bubble path {
 		stroke-dasharray: 136;
