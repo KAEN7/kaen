@@ -24,7 +24,6 @@ const Resume = () => {
 
 			<Swiper
 				effect={"coverflow"}
-				grabCursor={false}
 				centeredSlides={false}
 				touchRatio={0}
 				slidesPerView={mobile ? 1 : 3}
