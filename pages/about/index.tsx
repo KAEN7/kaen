@@ -20,7 +20,7 @@ const About = () => {
 		}
 
 		if (labtop) {
-			setIsLabtop(labtop);
+			setIsLabtop(mobile ? false : labtop);
 		}
 	}, [mobile, labtop]);
 
