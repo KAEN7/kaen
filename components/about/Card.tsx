@@ -16,6 +16,19 @@ const Card = ({ item }: any) => {
 		setLoading(toggle);
 	};
 
+	const returnType = (type: string) => {
+		switch (type) {
+			case "company":
+				return color.point;
+			case "project":
+				return color.subPoint;
+			case "award":
+				return color.yellow;
+			default:
+				return color.black;
+		}
+	};
+
 	useEffect(() => {
 		// three(gltfName, loadingHandler);
 	}, []);
@@ -35,9 +48,7 @@ const Card = ({ item }: any) => {
 							/>
 							{" " + company}
 						</h3>
-						<span style={{ display: "flex", marginBottom: "0.5rem" }}>
-							{date}
-						</span>
+						<span style={{ display: "flex", marginBottom: "0.5rem" }}>{date}</span>
 						<span>{position}</span>
 					</>
 
@@ -105,7 +116,9 @@ const Card = ({ item }: any) => {
 						priority
 					/>
 					{/* <canvas id={gltfName}></canvas> */}
-					<span>{date}</span>
+					{/* <span>{date}</span> */}
+
+					<TypeColor type={returnType(item.type)}></TypeColor>
 				</>
 			)}
 		</CardItem>
@@ -185,6 +198,16 @@ const Detail = styled.div`
 	li {
 		font-size: 0.2rem;
 	}
+`;
+
+interface ITypeColor {
+	type: string;
+}
+
+const TypeColor = styled.div<ITypeColor>`
+	background: ${(props) => props.type};
+	width: 50%;
+	height: 10px;
 `;
 
 export default Card;

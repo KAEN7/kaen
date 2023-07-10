@@ -30,6 +30,7 @@ export const color = {
 	gray: "#D1D1D1",
 	point: "#5754CE",
 	subPoint: "#E680B0",
+	yellow: "#FFDB60",
 };
 
 // flex 디자인

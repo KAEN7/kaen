@@ -7,6 +7,7 @@ import { useMediaQuery } from "react-responsive";
 
 import resume from "../../json/resume.json";
 import Card from "./Card";
+import { color } from "../../styles/theme";
 
 const Resume = () => {
 	const [isMobile, setIsMobile] = useState(false);
@@ -21,6 +22,19 @@ const Resume = () => {
 	return (
 		<ResumeSection id="resume" mobile={isMobile}>
 			<h3>RESUME</h3>
+
+			<Legend>
+				{[
+					{ title: "Company", color: color.point },
+					{ title: "Project", color: color.subPoint },
+					{ title: "Award", color: color.yellow },
+				].map((label) => (
+					<LegendItem key={label.title} color={label.color}>
+						<span>{label.title}</span>
+						<div className="colorLine"></div>
+					</LegendItem>
+				))}
+			</Legend>
 
 			<Swiper
 				effect={"coverflow"}
@@ -81,6 +95,34 @@ const ResumeSection = styled.section<IResumeSection>`
 
 	.swiper-slide {
 		display: flex;
+	}
+`;
+
+const Legend = styled.ul`
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	padding-right: 0.5em;
+	box-sizing: border-box;
+	list-style: none;
+`;
+
+interface ILegendItem {
+	color: string;
+}
+
+const LegendItem = styled.li<ILegendItem>`
+	display: flex;
+	align-items: center;
+	margin-right: 1rem;
+
+	.colorLine {
+		width: 3rem;
+		height: 0.8rem;
+		border-radius: 5px;
+		background: ${(props) => props.color};
+		margin-left: 0.5rem;
 	}
 `;
 

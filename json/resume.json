@@ -1,6 +1,7 @@
 [
 	{
 		"company": "핀스프로토콜",
+		"type": "company",
 		"logo": "pynthprotocol",
 		"date": "2022.03 ~ 2022.11",
 		"position": "개발팀/프론트엔드",
@@ -67,6 +68,7 @@
 	},
 	{
 		"company": "Darkmunity",
+		"type": "project",
 		"logo": "darkmunity",
 		"date": "2023.02 ~ 진행중",
 		"position": "개발팀/프론트엔드",
@@ -101,6 +103,7 @@
 	},
 	{
 		"company": "한화생명 블록체인 해커톤",
+		"type": "award",
 		"logo": "baroque",
 		"date": "크러스트상 수상",
 		"position": "개발팀/프론트엔드, 디자이너",
